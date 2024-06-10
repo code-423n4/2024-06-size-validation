@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Ali55",
+  "risk": "3",
+  "title": "This function is marked as an initializer but is also declared as public",
+  "issueId": 3,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/3"
+}
