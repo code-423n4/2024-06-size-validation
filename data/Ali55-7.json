@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Ali55",
+  "risk": "3",
+  "title": "The smart contract's withdraw function is vulnerable to a reentrancy attack",
+  "issueId": 7,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/7"
+}
