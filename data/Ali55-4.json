@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Ali55",
+  "risk": "3",
+  "title": "lead to a front-running attack due to the state variable",
+  "issueId": 4,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/4"
+}
