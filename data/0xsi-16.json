@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "0xsi",
+  "risk": "2",
+  "title": "The function `THORChain_router::_routerDeposit` sets the expiry to `type(uint).max` by default which is similar to having no expiration.",
+  "issueId": 16,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/16"
+}
