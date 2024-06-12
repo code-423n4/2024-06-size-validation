@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Centaur",
+  "risk": "3",
+  "title": "Inconsistent Intermediate Asset Check in PriceFeed Constructor Leading to Incorrect Price Calculations",
+  "issueId": 18,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/18"
+}
