@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "biakia",
+  "risk": "3",
+  "title": "The validation in `validateMinimumCredit` function is incorrect, which will result in  the credit amount after reduced below the minimum credit",
+  "issueId": 22,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/22"
+}
