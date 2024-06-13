@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "NoOne",
+  "risk": "3",
+  "title": "State Inconsistency Due to Unhandled Revert in `multicall` Function",
+  "issueId": 34,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/34"
+}
