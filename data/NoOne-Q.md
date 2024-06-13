@@ -1,0 +1,3 @@
+Missing events in https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/DepositTokenLibrary.sol#L23-L40
+
+The absence of event emissions in the `depositUnderlyingCollateralToken` and `withdrawUnderlyingCollateralToken` functions reduces the transparency and traceability of these critical actions. Without events, it becomes challenging to track deposits and withdrawals, potentially complicating audits, debugging, and monitoring for both users and developers. Event emissions are crucial for maintaining a clear and verifiable history of interactions with the contract.
