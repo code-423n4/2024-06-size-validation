@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "emerald7017",
+  "risk": "2",
+  "title": "Unhandled Invalid Position ID in getLoanStatus Function Causes Revert",
+  "issueId": 61,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/61"
+}
