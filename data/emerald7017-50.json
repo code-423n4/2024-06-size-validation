@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "emerald7017",
+  "risk": "2",
+  "title": " Inconsistent State and Loss of Funds Due to Missing Token Transfer Logic in `buyCreditMarket` Function",
+  "issueId": 50,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/50"
+}
