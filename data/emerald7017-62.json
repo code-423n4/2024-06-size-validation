@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "emerald7017",
+  "risk": "2",
+  "title": "Inaccurate Collateral Assignment in `getDebtPositionAssignedCollateral` Function for Borrowers with Multiple `DebtPositions`",
+  "issueId": 62,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/62"
+}
