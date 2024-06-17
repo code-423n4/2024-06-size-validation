@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "3n0ch",
+  "risk": "3",
+  "title": "DoS on sell credit market order with `creditPositionId != RESERVED_ID` by front-run compensating the credit position with `creditPositionToCompensateId = RESERVED_ID` and `amount = type(uint256).max`",
+  "issueId": 47,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/47"
+}
