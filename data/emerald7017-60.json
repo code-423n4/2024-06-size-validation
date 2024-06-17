@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "emerald7017",
+  "risk": "2",
+  "title": "Unchecked Debt Position ID in `getDebtPositionByCreditPositionId` Function Leads to Potential Revert",
+  "issueId": 60,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/60"
+}
