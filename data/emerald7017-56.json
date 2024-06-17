@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "emerald7017",
+  "risk": "2",
+  "title": "Missing Update in `createCreditPosition` Function Leads to Inconsistent Credit Position Tracking.",
+  "issueId": 56,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/56"
+}
