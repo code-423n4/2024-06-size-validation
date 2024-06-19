@@ -52,3 +52,17 @@ emit Events.SellCreditMarket(
         );
 ```
 For the second issue, move the event emission to the end with the right parameters.
+
+## Summary
+3. Wrong usage of storage variables when it will more gas-efficient to use memory
+
+## Description
+There is lot of cases where storage variables are retrieved just to make a `get` call on them which is non-sence and, of course, not so gas efficient. 
+
+## Code snippet
+For example, here a `storage` `debtPosition` is retrieved just to take the `dueDate` of it. It will be more efficient if it was `memory`.
+
+https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/actions/SellCreditMarket.sol#L141C34-L141C46
+
+## Fix
+Check again where `memory` can be used and `storage` is non-sense.
