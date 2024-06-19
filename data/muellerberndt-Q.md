@@ -25,13 +25,22 @@ Remove the `executeLiquidateWithReplacement` functionality.
 # Vulnerability details
 
 ## Impact
-The `borrowAToken` cap is ineffective when depositing USDC via `multicall`. As a result, protocol risk can grow beyond the risk parameters set by the admin.
 
-The issue exists because `Multicall.sol` checks `state.data.borrowAToken.balanceOf(address(this))` which is the incorrect value.
+The `borrowAToken` cap is checked inconsistently between regular deposits/withdrawals and multicall.
+
+In `validateBorrowATokenCap`, the `borrowATokenCap` is checked against the total supply of `borrowAToken`.
+
+https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/CapsLibrary.sol#L52
+
+However, in multicall, `state.data.borrowAToken.balanceOf(address(this))` used.
 
 https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/Multicall.sol#L37
 
-I'm rating this as low severity since it does not directly put user funds at risk.
+https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/CapsLibrary.sol#L27
+
+As a result, the `borrowAToken` cap is ineffective when depositing USDC via `multicall`. 
+
+This issue does not directly impact user funds or functionality. It can cause protocol risk to exceed the risk parameters set by the admin.
 
 ## Proof of Concept
 
