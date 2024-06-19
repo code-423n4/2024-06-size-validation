@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "ETHworker",
+  "risk": "3",
+  "title": "Insufficient Validation in Liquidation Function Leading to Potential Fund Loss",
+  "issueId": 75,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/75"
+}
