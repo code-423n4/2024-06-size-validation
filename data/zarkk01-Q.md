@@ -1,5 +1,5 @@
 ## Summary
-Incorrect implementation of binary search in `Math.sol`
+1.Incorrect implementation of binary search in `Math.sol`
 
 ## Vulnerability Detail
 Binary search is a Computer Science algorithm that since it's inception from John Mauchly at 1946 has a story full of wrong and buggy implementations. Joshua Bloch, one of the famous JAVA developers, discovered at around 2000s that the famous implementation of binary search (which is used in `Math.sol` of Size protocol, too) is vulnerable in the part `(high + low) / 2`. For this reason and from then, in the field of Computer Science, an implementation in which `low + (high - low) / 2` is used is the most appropriete way to do binary search.
@@ -34,3 +34,21 @@ function binarySearch(uint256[] memory array, uint256 value) internal pure retur
         return (high, low);
     }
 ```
+
+## Summury
+2.Wrong event emission on `SellCreditMarket` event
+
+## Description 
+In `SellCreditMarket.sol` contract in `executeSellCreditMarket()` function an event is emitted but with a wrong parameter. Instead of the `dueDate` which is `block.timestamp + params.tenor` of the DebtPosition , `params.tenor` is passed incorrectly. But this is not the only problem, furthermore the event is emitted with parameters that will maybe change until the end of the function call like `tenor` and `borrower`, so the event will be complete wrong.
+
+## Code snippet 
+https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/actions/SellCreditMarket.sol#L131
+
+## Fix
+Consider making this change for the first issue :
+```solidity
+emit Events.SellCreditMarket(
+            params.lender, params.creditPositionId, params.tenor, params.amount, params.tenor + block.timestamp, params.exactAmountIn
+        );
+```
+For the second issue, move the event emission to the end with the right parameters.
