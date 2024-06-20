@@ -1,6 +1,6 @@
 # G-01 validateSelfLiquidate checks borrower's collateral ratio twice
 
-It appears that most of the code in `isCreditPositionSelfLiquidatable` is redundant. 
+It appears that most of the code in `isCreditPositionSelfLiquidatable` is redundant.
 
 In `validateSelfLiquidate`, `isCreditPositionSelfLiquidatable` is called which checks whether the borrower of the associated `debtPosition` is underwater:
 
