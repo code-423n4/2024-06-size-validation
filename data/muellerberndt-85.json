@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "muellerberndt",
+  "risk": "3",
+  "title": "Incorrect calculation of creditAmountIn in market sell orders with exact cashAmountOut leads to losses for lenders",
+  "issueId": 85,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/85"
+}
