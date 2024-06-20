@@ -20,79 +20,7 @@ Manual review
 
 Remove the `executeLiquidateWithReplacement` functionality.
 
-# L-02 Multicall deposits bypass the borrowAToken cap risk parameter
-
-# Vulnerability details
-
-## Impact
-
-The `borrowAToken` cap is checked inconsistently between regular deposits/withdrawals and multicall.
-
-In `validateBorrowATokenCap`, the `borrowATokenCap` is checked against the total supply of `borrowAToken`.
-
-https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/CapsLibrary.sol#L52
-
-However, in multicall, `state.data.borrowAToken.balanceOf(address(this))` used.
-
-https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/Multicall.sol#L37
-
-https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/CapsLibrary.sol#L27
-
-As a result, the `borrowAToken` cap is ineffective when depositing USDC via `multicall`. 
-
-This issue does not directly impact user funds or functionality. It can cause protocol risk to exceed the risk parameters set by the admin.
-
-## Proof of Concept
-
-I created a test to reproduce this issue:
-
-```
-    function test_Multicall_multicall_always_bypasses_cap() public {
-        _setPrice(1e18);
-        uint256 amount = 100e6;
-        uint256 cap = 100e6;
-        _updateConfig("borrowATokenCap", cap);
-
-        _deposit(alice, usdc, amount);
-        // _deposit(bob, weth, 200e18);
-
-        _mint(address(usdc), bob, amount);
-        _approve(bob, address(usdc), address(size), amount);
-
-        // attempt to reposit via multicall
-        bytes[] memory data = new bytes[](1);
-        data[0] = abi.encodeCall(size.deposit, DepositParams({token: address(usdc), amount: amount, to: bob}));
-        vm.prank(bob);
-        size.multicall(data);
-
-        assertGt(size.data().borrowAToken.totalSupply() , cap);        
-    }
-```
-
-
-## Tools Used
-
-Manual review
-
-## Recommended Mitigation Steps
-
- To get the total outstanding balance of `borrowATokens`, this should be either:
-
-```
-uint256 borrowATokenSupplyBefore = state.data.borrowAToken.totalSupply();
-```
-
-Or:
-
-```
-uint256 borrowATokenSupplyBefore = state.data.underlyingBorrowToken.balanceOf(address(this));
-```
-
-## Assessed type
-
-Invalid Validation
-
-# L-03 Slight miscalculation of CreditAmountIn in sell credit market order with exact cashAmountout and fragmentation fee
+# L-02 Slight miscalculation of CreditAmountIn in sell credit market order with exact cashAmountout and fragmentation fee
 
 ## Impact
 
@@ -143,7 +71,3 @@ Manual review
 ## Recommended Mitigation Steps
 
 Update the formula such that the fragmentation fee is added correctly.
-
-## Assessed type
-
-Math
