@@ -91,3 +91,59 @@ uint256 borrowATokenSupplyBefore = state.data.underlyingBorrowToken.balanceOf(ad
 ## Assessed type
 
 Invalid Validation
+
+# L-03 Slight miscalculation of CreditAmountIn in sell credit market order with exact cashAmountout and fragmentation fee
+
+## Impact
+
+There is a slight error when calculating `creditAmountIn` in the function `getCreditAmountIn` in `AccountLibrary.sol`. In the case of credit fractionalization the credit is calculated as follows:
+
+```
+            creditAmountIn = Math.mulDivUp(
+                cashAmountOut + state.feeConfig.fragmentationFee, PERCENT + ratePerTenor, PERCENT - swapFeePercent
+            );
+```
+We can observe that the swap fee is applied to `cashAmountOut + state.feeConfig.fragmentationFee`, meaning that the borrower is charged an extra fraction of `fragmentationFee`. In practice, the impact is however very small assuming since `fragmentationFee` is a low constant value (the credit amount will be overestimated by a few cents).
+
+## Proof of Concept
+
+Let's say Alice wants to borrow 100 USDC from Bob. Alice chooses cashAmountOut = 100. To more easily showcase the issue we use a high `swapFee` of 10%.
+
+```
+cashAmountOut = 100
+Rate = 10%
+Swap fee = 10%
+Fragmentation fee = 5 USDC
+```
+
+Bob pays 100 USDC to Alice and 15 USDC in fees = 115. According to the formula in the code, the credit is calculated as:
+
+```
+CreditAmountIn = (cashAmountOut + state.feeConfig.fragmentationFee) * ((PERCENT + ratePerTenor) / (PERCENT - swapFeePercent))
+
+= (100 + 5) * ((100 + 10) / (100 - 10)) = 128.33333333333334
+```
+
+In this case, Bob gets a rate of 10.38% and Alice pays Bob an extra 0.61 USD, which equals 10% of the fragmentation fee plus interest.
+
+The correct calculation would be:
+
+```
+CreditAmountIn = (cashAmountOut) * ((PERCENT + ratePerTenor) / (PERCENT - swapFeePercent)) + state.feeConfig.fragmentationFee * ((PERCENT + ratePerTenor) / PERCENT)
+
+100 * ((100 + 10) / (100 - 10)) + 5 * ((100 + 10) / (100)) = 127.72222222222223
+```
+
+Not we arrive at a rate of exactly 10% for Bob.
+
+## Tools Used
+
+Manual review
+
+## Recommended Mitigation Steps
+
+Update the formula such that the fragmentation fee is added correctly.
+
+## Assessed type
+
+Math
