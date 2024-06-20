@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "TECHFUND-inc",
+  "risk": "2",
+  "title": "Ether passed to  withdraw() function will be lost for the caller, can be stolen by other depositer",
+  "issueId": 84,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/84"
+}
