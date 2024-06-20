@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "gajiknownnothing",
+  "risk": "2",
+  "title": "Storage Could Be Corrupted During an Upgrade",
+  "issueId": 86,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/86"
+}
