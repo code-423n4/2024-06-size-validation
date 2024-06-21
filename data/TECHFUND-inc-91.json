@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "TECHFUND-inc",
+  "risk": "2",
+  "title": "unhandled return value for transferFrom() call during self liquidation",
+  "issueId": 91,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/91"
+}
