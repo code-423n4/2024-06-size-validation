@@ -76,4 +76,32 @@ Manual review
 
 Remove the `executeLiquidateWithReplacement` functionality.
 
+# L-03 Liquidation collateral ratio can never be increased due to incorrect input validation
 
+In `executeUpdateConfig`, there is a check that prevents `crLiquidation` to exceed its current value.
+
+```
+        } else if (Strings.equal(params.key, "crLiquidation")) {
+            if (params.value >= state.riskConfig.crLiquidation) {
+```
+
+https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/actions/UpdateConfig.sol#L87-L93
+
+This appears to be a mistake, assuming that the intent here was to prevent `crLiquidation` from exceeding `crOpening`.
+
+## Proof of Concept
+
+I did not create a proof-of-concept since the issue is trivial.
+
+## Tools Used
+
+Manual review
+
+## Recommended Mitigation Steps
+
+ The correct comparison would be:
+
+```
+        } else if (Strings.equal(params.key, "crLiquidation")) {
+            if (params.value >= state.riskConfig.crOpening) {
+```
