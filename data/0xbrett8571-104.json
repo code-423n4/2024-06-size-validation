@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "0xbrett8571",
+  "risk": "2",
+  "title": "VoteWeighting.sol Weight Calculation Can Lead to Unexpected Nominee Voting Power",
+  "issueId": 104,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/104"
+}
