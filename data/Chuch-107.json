@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Chuch",
+  "risk": "2",
+  "title": "[M-02] Incorrect rounding down in `PriceFeed::getPrice()` function can lead to precision loss",
+  "issueId": 107,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/107"
+}
