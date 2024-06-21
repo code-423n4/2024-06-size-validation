@@ -33,11 +33,6 @@ function validateUserIsNotBelowOpeningLimitBorrowCR(State storage state, address
 }
 ```
 
-### Benefits of the Fix
-- **Reduced Gas Costs**: Eliminates redundant state reads, reducing the overall gas consumption.
-- **Improved Performance**: Reduces the number of state accesses, enhancing the function's efficiency.
-- **Enhanced Code Readability**: Storing the result in a variable makes the code cleaner and easier to maintain.
-
 ## Unused `State storage` Parameter in `validateMinimumCollateralProfit` Function
 
 ### Lines of Code
@@ -77,7 +72,54 @@ function validateMinimumCollateralProfit(
 }
 ```
 
-### Benefits of the Fix
-- **Gas Optimization**: Eliminating the unnecessary `State storage` parameter reduces gas costs associated with passing storage variables.
-- **Code Readability**: Removing unused parameters simplifies the function signature and makes the code easier to understand and maintain.
-- **Best Practices**: Adhering to best practices by avoiding unused variables leads to cleaner and more efficient code, which is easier to audit and less prone to errors.
+## Excessive Gas Consumption in `validateSelfLiquidate` Function
+
+### Lines of Code
+[SelfLiquidate.sol#L34-L54](https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/actions/SelfLiquidate.sol#L34-L54)
+
+### Description
+The `validateSelfLiquidate` function in the contract makes redundant calls to `state.collateralRatio(debtPosition.borrower)`, which results in unnecessary gas consumption. The same function is called three times within the same execution context, which is inefficient and increases the overall cost of gas for this operation.
+
+### Proof of Concept
+In the provided `validateSelfLiquidate` function, the `state.collateralRatio(debtPosition.borrower)` function is invoked three times. This is redundant and can be optimized by storing the result of the first call in a local variable and reusing it:
+```
+        if (!state.isCreditPositionSelfLiquidatable(params.creditPositionId)) {
+            revert Errors.LOAN_NOT_SELF_LIQUIDATABLE(
+                params.creditPositionId,
+                state.collateralRatio(debtPosition.borrower),
+                state.getLoanStatus(params.creditPositionId)
+            );
+        }
+        if (state.collateralRatio(debtPosition.borrower) >= PERCENT) {
+            revert Errors.LIQUIDATION_NOT_AT_LOSS(params.creditPositionId, state.collateralRatio(debtPosition.borrower));
+        }
+```
+
+### Recommended Mitigation Steps
+Refactor the `validateSelfLiquidate` function to call `state.collateralRatio(debtPosition.borrower)` only once and store the result in a local variable. Use this variable for subsequent checks within the function. This reduces the number of external function calls, thereby optimizing gas usage.
+```
+function validateSelfLiquidate(State storage state, SelfLiquidateParams calldata params) external view {
+    CreditPosition storage creditPosition = state.getCreditPosition(params.creditPositionId);
+    DebtPosition storage debtPosition = state.getDebtPositionByCreditPositionId(params.creditPositionId);
+
+    // Store the collateral ratio in a local variable
+    uint256 collateralRatio = state.collateralRatio(debtPosition.borrower);
+
+    // validate creditPositionId
+    if (!state.isCreditPositionSelfLiquidatable(params.creditPositionId)) {
+        revert Errors.LOAN_NOT_SELF_LIQUIDATABLE(
+            params.creditPositionId,
+            collateralRatio,
+            state.getLoanStatus(params.creditPositionId)
+        );
+    }
+    if (collateralRatio >= PERCENT) {
+        revert Errors.LIQUIDATION_NOT_AT_LOSS(params.creditPositionId, collateralRatio);
+    }
+
+    // validate msg.sender
+    if (msg.sender != creditPosition.lender) {
+        revert Errors.LIQUIDATOR_IS_NOT_LENDER(msg.sender, creditPosition.lender);
+    }
+}
+```
