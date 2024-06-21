@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "TECHFUND-inc",
+  "risk": "2",
+  "title": "using Contract's native token balance does not provide any guard in Multicall, hence will revert",
+  "issueId": 90,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/90"
+}
