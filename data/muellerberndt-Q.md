@@ -9,7 +9,7 @@ There is a slight error when calculating `creditAmountIn` in the function `getCr
                 cashAmountOut + state.feeConfig.fragmentationFee, PERCENT + ratePerTenor, PERCENT - swapFeePercent
             );
 ```
-We can observe that the swap fee is applied to the fragmentation fee, meaning that the borrower is charged an extra fraction of `fragmentationFee`. In practice, the impact is however very small assuming since `fragmentationFee` is a low constant value (the credit amount will be overestimated by a few cents).
+We can observe that the swap fee is applied to the swapped amount plus the fragmentation fee (instead of only the swapped amount), meaning that the borrower credit is overestimated. In practice, the impact is however only a few cents since `fragmentationFee` is a low constant value.
 
 ## Proof of Concept
 
