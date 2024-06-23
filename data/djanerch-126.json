@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "djanerch",
+  "risk": "3",
+  "title": "Malicious user can reduce victim's credit amount",
+  "issueId": 126,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/126"
+}
