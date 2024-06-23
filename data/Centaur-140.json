@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Centaur",
+  "risk": "2",
+  "title": "Initial state of the protocol can still be reInitialized executed",
+  "issueId": 140,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/140"
+}
