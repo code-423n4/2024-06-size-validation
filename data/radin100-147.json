@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "radin100",
+  "risk": "2",
+  "title": "Wrong unscale could lead to stuck amount",
+  "issueId": 147,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/147"
+}
