@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "TECHFUND-inc",
+  "risk": "3",
+  "title": "Approvals can be revoked by the token owner, leading to liquidations being reverted",
+  "issueId": 146,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/146"
+}
