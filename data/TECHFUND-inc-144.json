@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "TECHFUND-inc",
+  "risk": "2",
+  "title": "Attaching payable modifier to external functions not handling msg.value will lead to locking of funds",
+  "issueId": 144,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/144"
+}
