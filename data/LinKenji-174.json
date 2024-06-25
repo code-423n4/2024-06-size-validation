@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "LinKenji",
+  "risk": "2",
+  "title": "executeSelfLiquidate Function: Pass assignedCollateral as Argument to transferFrom",
+  "issueId": 174,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/174"
+}
