@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "LinKenji",
+  "risk": "2",
+  "title": "getCreditAmountOut Miscalculates Credit Due to Doubled Swap Fee (Fragmentation)",
+  "issueId": 177,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/177"
+}
