@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "LinKenji",
+  "risk": "2",
+  "title": "executeLiquidateWithReplacement Miscalculates Rate for New Borrower (Liquidation)",
+  "issueId": 172,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/172"
+}
