@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "LinKenji",
+  "risk": "2",
+  "title": "getDebtPositionAssignedCollateral Misuses Total Borrower Debt/Collateral (Liquidation)",
+  "issueId": 176,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/176"
+}
