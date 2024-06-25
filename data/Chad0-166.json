@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Chad0",
+  "risk": "2",
+  "title": "The `crLiquidation` can only be updated downwards but not upwards which is a bad design",
+  "issueId": 166,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/166"
+}
