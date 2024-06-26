@@ -1,0 +1,2 @@
+[QA-1] Use `safeTransfer` anywhere possible 
+[QA-2] Get all the new devs you add to the team, not to trust `msg.value`, because of the multicall functionality that uses `delegatecall()` with payable functions!
