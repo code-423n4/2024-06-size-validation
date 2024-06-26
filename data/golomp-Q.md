@@ -674,3 +674,24 @@ Declaring named returns, but not using them, is confusing to the reader. Conside
 
 
 </details>
+
+## L-10: Missing NatSpec from contract declarations
+
+Some contracts miss a @dev/@notice NatSpec, which should be a best practice to add as a documentation.
+
+<details><summary>3 Found Instances</summary>
+
+
+- Found in src/Size.sol [Line: 62](src/libraries/Errors.sol#L62)
+
+	```solidity
+	    /// @title Size
+		/// @custom:security-contact security@size.credit
+		/// @author Size (https://size.credit/)
+		/// @notice See the documentation in {ISize}.
+	```
+- Found in src/SizeStorage.sol
+
+- Found in src/SizeViewData.sol
+
+</details>
