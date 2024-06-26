@@ -695,3 +695,13 @@ Some contracts miss a @dev/@notice NatSpec, which should be a best practice to a
 - Found in src/SizeViewData.sol
 
 </details>
+
+## L-11: Lack of Event Emission for Critical Actions
+
+Critical actions such as deposit, withdraw, buyCreditLimit, sellCreditLimit, buyCreditMarket, sellCreditMarket, repay, claim, liquidate, selfLiquidate, liquidateWithReplacement, compensate, and setUserConfiguration should emit events to allow for better tracking and auditing. Emitting events helps with off-chain logging and monitoring.
+
+<details><summary>1 Found Instances</summary>
+
+- Found in src/Size.sol
+
+</details>
