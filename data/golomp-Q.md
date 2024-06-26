@@ -563,3 +563,114 @@ it is recommended that the definition be removed when custom error is unused
 	```
 
 </details>
+
+## L-9: Unused named return
+
+Declaring named returns, but not using them, is confusing to the reader. Consider either completely removing them (by declaring just the type without a name), or remove the return statement and do a variable assignment. This would improve the readability of the code, and it may also help reduce regressions during future code refactors.
+
+<details><summary>5 Found Instances</summary>
+
+
+- Found in src/Size.sol [Line: 147](src/Size.sol#L147)
+
+	```solidity
+	function multicall(bytes[] calldata _data)
+        public
+        payable
+        override(IMulticall)
+        whenNotPaused
+        returns (bytes[] memory results)
+    {
+        results = state.multicall(_data);
+    }
+	```
+- Found in src/Size.sol [Line: 215](src/Size.sol#L215)
+
+	```solidity
+    function liquidate(LiquidateParams calldata params)
+        external
+        payable
+        override(ISize)
+        whenNotPaused
+        returns (uint256 liquidatorProfitCollateralToken)
+    {
+        state.validateLiquidate(params);
+        liquidatorProfitCollateralToken = state.executeLiquidate(params);
+        state.validateMinimumCollateralProfit(params, liquidatorProfitCollateralToken);
+    }
+	```
+
+- Found in src/Size.sol [Line: 235](src/Size.sol#L235)
+
+	```solidity
+     function liquidateWithReplacement(LiquidateWithReplacementParams calldata params)
+        external
+        payable
+        override(ISize)
+        whenNotPaused
+        onlyRole(KEEPER_ROLE)
+        returns (uint256 liquidatorProfitCollateralToken, uint256 liquidatorProfitBorrowToken)
+    {
+        state.validateLiquidateWithReplacement(params);
+        uint256 amount;
+        (amount, liquidatorProfitCollateralToken, liquidatorProfitBorrowToken) =
+            state.executeLiquidateWithReplacement(params);
+        state.validateUserIsNotBelowOpeningLimitBorrowCR(params.borrower);
+        state.validateMinimumCollateralProfit(params, liquidatorProfitCollateralToken);
+        state.validateVariablePoolHasEnoughLiquidity(amount);
+    }
+	```
+
+- Found in src/AccountingLibrary.sol [Line: 29](src/AccountingLibrary.sol#L29)
+
+	```solidity
+    function debtTokenAmountToCollateralTokenAmount(State storage state, uint256 debtTokenAmount)
+        internal
+        view
+        returns (uint256 collateralTokenAmount)
+    {
+        uint256 debtTokenAmountWad = Math.amountToWad(debtTokenAmount, state.data.underlyingBorrowToken.decimals());
+        collateralTokenAmount = Math.mulDivUp(
+            debtTokenAmountWad, 10 ** state.oracle.priceFeed.decimals(), state.oracle.priceFeed.getPrice()
+        );
+    }
+	```
+
+- Found in src/AccountingLibrary.sol [Line: 62](src/AccountingLibrary.sol#L62)
+
+	```solidity
+    function createDebtAndCreditPositions(
+        State storage state,
+        address lender,
+        address borrower,
+        uint256 futureValue,
+        uint256 dueDate
+    ) external returns (CreditPosition memory creditPosition) {
+        DebtPosition memory debtPosition =
+            DebtPosition({borrower: borrower, futureValue: futureValue, dueDate: dueDate, liquidityIndexAtRepayment: 0});
+
+        uint256 debtPositionId = state.data.nextDebtPositionId++;
+        state.data.debtPositions[debtPositionId] = debtPosition;
+
+        emit Events.CreateDebtPosition(debtPositionId, borrower, lender, futureValue, dueDate);
+
+        creditPosition = CreditPosition({
+            lender: lender,
+            credit: debtPosition.futureValue,
+            debtPositionId: debtPositionId,
+            forSale: true
+        });
+
+        uint256 creditPositionId = state.data.nextCreditPositionId++;
+        state.data.creditPositions[creditPositionId] = creditPosition;
+        state.validateMinimumCreditOpening(creditPosition.credit);
+        state.validateTenor(dueDate - block.timestamp);
+
+        emit Events.CreateCreditPosition(creditPositionId, lender, debtPositionId, RESERVED_ID, creditPosition.credit);
+
+        state.data.debtToken.mint(borrower, futureValue);
+    }
+	```
+
+
+</details>
