@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "almurhasan",
+  "risk": "3",
+  "title": "Borrowers can frontrun lenders to decrease apr and lenders can frontrun borrowers to increase apr.",
+  "issueId": 223,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/223"
+}
