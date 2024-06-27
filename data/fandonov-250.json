@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "fandonov",
+  "risk": "3",
+  "title": "The user can claim even if the leftover credit is lower than the minimumCreditBorrowAToken.",
+  "issueId": 250,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/250"
+}
