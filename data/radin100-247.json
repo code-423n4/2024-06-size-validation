@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "radin100",
+  "risk": "2",
+  "title": "Bad tenor validation could lead to buy/sell position's credits at tenor below the limit",
+  "issueId": 247,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/247"
+}
