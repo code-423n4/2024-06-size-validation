@@ -16,6 +16,7 @@
 | [QA-10](#qa-10-fix-stale-docs-pointing-to-deprecated-contracts)                                                                           | Fix stale docs pointing to deprecated contracts                                                                            |
 | [QA-11](#qa-11-usdc-getting-paused-by-circle-would-brick-size)                                                                            | USDC getting paused by Circle would brick Size                                                                             |
 | [QA-12](#qa-12-size-could-be-dosd-when-some-new-tokens-are-integrated)                                                                    | Size could be DOS'd when some new tokens are integrated                                                                    |
+| [QA-13](#qa-13-documentation-should-talk-about-the-right-and-valid-assets)                                                                | Documentation should talk about the right and valid assets                                                                 |
 
 ## QA-01 Grace Period duration seems to be excessive after sequencer recovery
 
@@ -559,3 +560,23 @@ See _Proof of Concept_.
 ### Recommended Mitigation Steps
 
 Consider querying `balanceOf()` on a low level.
+
+## QA-13 Documentation should talk about the right and valid assets
+
+### Proof of Concept
+
+Take a look at https://docs.size.credit/technical-docs/contracts/2.1-deposit-tokens-and-global-trackers#id-2.1-deposit-tokens
+
+```markdown
+Underlying borrow and collateral tokens (USDC and WETH) are converted 1:1 into ERC-20 deposit tokens via deposit, which mints `szaUSDC` and `szWETH`, and received back via withdraw, which burns deposit tokens 1:1 in exchange for the underlying tokens.
+```
+
+Evidently, the instance of `szaUSDC` should be `aszUSDC` instead of `szaUSDC`.
+
+### Impact
+
+Bad code documentation.
+
+### Recommended Mitigation Steps
+
+Consider fixing all the typos in documentation, multiple other instances should be taken care of too.
