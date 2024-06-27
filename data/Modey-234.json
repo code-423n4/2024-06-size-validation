@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Modey",
+  "risk": "2",
+  "title": "The ChainLink Oracle in `PriceFeed.sol` could return the wrong price since there are no min/max Circuit breaker checks. breaker checks",
+  "issueId": 234,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/234"
+}
