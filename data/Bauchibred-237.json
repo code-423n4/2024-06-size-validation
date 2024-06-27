@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Bauchibred",
+  "risk": "2",
+  "title": "Repay and liquidate are pausable but no grace period applied to liquidations after protocol gets unpaused which would lead to unfair liquidations of users",
+  "issueId": 237,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/237"
+}
