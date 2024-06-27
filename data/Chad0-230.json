@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Chad0",
+  "risk": "2",
+  "title": "YieldCurve accepts negative apr inputs, which can lead to sell/buyCreditLimit orders being able to get listed but possibly never gonna get fulfilled",
+  "issueId": 230,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/230"
+}
