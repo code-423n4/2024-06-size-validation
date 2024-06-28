@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "ThomasHeim",
+  "risk": "3",
+  "title": "Arbitrary `from` passed to `transferFrom` (or `safeTransferFrom`) in DepositTokenLibrary.sol",
+  "issueId": 295,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/295"
+}
