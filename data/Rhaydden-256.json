@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Rhaydden",
+  "risk": "2",
+  "title": "Unhandled Chainlink latestRoundData() revert can lock price oracle access in PriceFeed.sol",
+  "issueId": 256,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/256"
+}
