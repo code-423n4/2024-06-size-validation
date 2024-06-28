@@ -705,3 +705,22 @@ Critical actions such as deposit, withdraw, buyCreditLimit, sellCreditLimit, buy
 - Found in src/Size.sol
 
 </details>
+
+## L-12: Function visibility order does not comply with best practices
+
+Description
+This is a best practice* that should be followed.
+
+Functions should be grouped according to their visibility and ordered in all contracts.
+
+constructor
+receive function (if exists)
+fallback function (if exists)
+external
+public
+internal
+private
+Within a grouping, place the view and pure functions last.
+
+*best practice
+https://docs.soliditylang.org/en/latest/style-guide.html#order-of-functions
