@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "moneyversed",
+  "risk": "3",
+  "title": "Flawed liquidation reward calculation in `executeLiquidation` allows over-compensation of liquidators due to improper use of collateral value",
+  "issueId": 259,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/259"
+}
