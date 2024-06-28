@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "sunnyStefi",
+  "risk": "2",
+  "title": "The use of `block.timestamp` in calculating tenors and deadlines can lead to MEV exploitation",
+  "issueId": 282,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/282"
+}
