@@ -7,4 +7,5 @@ By modifying the type of `isMulticall` to `uint256` and use uint256(2) to repres
 
 ## References
 https://detectors.auditbase.com/int-instead-of-bool-gas-optimization
+
 https://medium.com/@kalexotsu/solidity-gas-optimization-stop-using-bools-for-true-false-values-e3a3d513f7fa
