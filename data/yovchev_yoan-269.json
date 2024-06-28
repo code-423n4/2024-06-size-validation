@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "yovchev_yoan",
+  "risk": "2",
+  "title": "[M-1] `Deposit::executeDeposit` uses `address(this).balance` which can lead to unintended financial operations",
+  "issueId": 269,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/269"
+}
