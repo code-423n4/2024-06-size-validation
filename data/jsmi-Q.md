@@ -5,11 +5,11 @@ The `SellCreditMarket` event is delared as follows
         uint256 indexed creditPositionId,
         uint256 indexed tenor,
         uint256 amount,
-        uint256 dueDate,
+@>      uint256 dueDate,
         bool exactAmountIn
     );
 ```
-But is called like this.
+But is called like this in `SellCreditMarket.sol`.
 ```solidity
         emit Events.SellCreditMarket(
             params.lender, params.creditPositionId, params.tenor, params.amount, params.tenor, params.exactAmountIn
