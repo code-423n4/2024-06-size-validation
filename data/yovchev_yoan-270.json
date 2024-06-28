@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "yovchev_yoan",
+  "risk": "2",
+  "title": "[M-2] Missing Validation for `crOpening` and `crLiquidation` in `UpdateConfig::executeUpdateConfig` could lead to risky parameters",
+  "issueId": 270,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/270"
+}
