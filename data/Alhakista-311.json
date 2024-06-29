@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Alhakista",
+  "risk": "2",
+  "title": "The validateBuyCreditLimit function not called.",
+  "issueId": 311,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/311"
+}
