@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "0xarno",
+  "risk": "2",
+  "title": "Multicall Failure Due to Concurrent Collateral and Borrow Token Deposits in `Size::deposit()",
+  "issueId": 307,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/307"
+}
