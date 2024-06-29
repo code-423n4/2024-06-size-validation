@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "0xStalin",
+  "risk": "2",
+  "title": "Incorrect validation to determine if the liquidator receives the requested minimum profit for executing the validation.",
+  "issueId": 344,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/344"
+}
