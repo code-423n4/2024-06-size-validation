@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Squilliam",
+  "risk": "3",
+  "title": " Unbounded return data in external calls of `DepositTokenLibrary.sol` of can lead to excessive gas consumption and DoS",
+  "issueId": 335,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/335"
+}
