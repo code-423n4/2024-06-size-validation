@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "ubl4nk",
+  "risk": "2",
+  "title": "Lack of maxDueDate in borrow offers/limit-orders",
+  "issueId": 313,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/313"
+}
