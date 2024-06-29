@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "alix40",
+  "risk": "2",
+  "title": "Loans are undervalued in `buyCreditMarket()` due to wrong rounding",
+  "issueId": 328,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/328"
+}
