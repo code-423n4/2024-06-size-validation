@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "0xStalin",
+  "risk": "2",
+  "title": "Rounding down when computing issuanceValue causes the new borrower to get less cash than what it would get for the same amount of Credit if his borrow offer would have been filled with a BuyCredit MarketOrder.",
+  "issueId": 348,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/348"
+}
