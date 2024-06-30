@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "mrMorningstar",
+  "risk": "3",
+  "title": "In `validateCompensate` there is wrong check that can approve transaction that will make some users not able to compensate, some borrowers to exploit protocol and some lenders not to claim their credit at expected due date",
+  "issueId": 352,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/352"
+}
