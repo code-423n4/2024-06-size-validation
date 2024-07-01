@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "0xbrett8571",
+  "risk": "2",
+  "title": "Inconsistent collateral ratio check allows premature self-liquidation",
+  "issueId": 399,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/399"
+}
