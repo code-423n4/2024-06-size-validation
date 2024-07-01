@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "mt030d",
+  "risk": "2",
+  "title": "Malicious actors can do block stuffing and liquidate a debt to profit when repayment is close to the dueDate timestamp.",
+  "issueId": 389,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/389"
+}
