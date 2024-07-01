@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "zanderbyte",
+  "risk": "2",
+  "title": "Borrow offer can be used more than once to significantly decrease borrower collateral ratio",
+  "issueId": 393,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/393"
+}
