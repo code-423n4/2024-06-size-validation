@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "dhank",
+  "risk": "3",
+  "title": "MaxDueDate of the LoanOffer is not checked while an existing creditPosition is bought-  BuyCreditMarket",
+  "issueId": 460,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/460"
+}
