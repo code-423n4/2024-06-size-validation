@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "moneyversed",
+  "risk": "3",
+  "title": "Incorrect credit decrement logic in compensation mechanism doesn't limit multiple debt reductions with single credit position",
+  "issueId": 387,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/387"
+}
