@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "zanderbyte",
+  "risk": "2",
+  "title": "Insufficient validation of an Oracle data feed",
+  "issueId": 395,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/395"
+}
