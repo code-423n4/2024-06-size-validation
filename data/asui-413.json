@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "asui",
+  "risk": "2",
+  "title": "Credit seller(lender early exit) could be made to borrow unexpectedly due to offer being the same as borrower's offer.",
+  "issueId": 413,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/413"
+}
