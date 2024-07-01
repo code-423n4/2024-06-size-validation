@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "DanielArmstrong",
+  "risk": "2",
+  "title": "`Fees` is calculated wrongly in `AccountingLibrary.sol#getCreditAmountIn()` function.",
+  "issueId": 432,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/432"
+}
