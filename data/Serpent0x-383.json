@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Serpent0x",
+  "risk": "2",
+  "title": "Unchecked External Call in Multicall Function",
+  "issueId": 383,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/383"
+}
