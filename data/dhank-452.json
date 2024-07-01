@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "dhank",
+  "risk": "3",
+  "title": "Lender/SelfLiquidator receives less collateral from borrower than expected.",
+  "issueId": 452,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/452"
+}
