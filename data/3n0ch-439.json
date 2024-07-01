@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "3n0ch",
+  "risk": "3",
+  "title": "Users can not compensate with `creditPositionToCompensateId = RESERVED_ID` at the end of the loan",
+  "issueId": 439,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/439"
+}
