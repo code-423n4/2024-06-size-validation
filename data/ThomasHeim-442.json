@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "ThomasHeim",
+  "risk": "2",
+  "title": "Using `ERC721::_mint()` can be dangerous in NonTransferrableToken.sol",
+  "issueId": 442,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/442"
+}
