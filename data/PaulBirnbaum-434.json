@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "PaulBirnbaum",
+  "risk": "3",
+  "title": "Liquidation and Self-Liquidation functions could be paused by Owner and lead to user loss of funds if their collateral value is dropping within that period ",
+  "issueId": 434,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/434"
+}
