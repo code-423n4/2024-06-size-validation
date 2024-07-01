@@ -118,7 +118,7 @@ For the reasons explained above something similar to this changes should be cons
 if (msg.value > 0) {
             // do not trust msg.value a(see `Multicall.sol`)
 -     amount = address(this).balance;
--           if (state.data.isMulticall) {
+           if (state.data.isMulticall) {
 +               amount = address(this).balance;
 +           } else {
 +     if (address(this).balance <= LEFTOVERS) {
