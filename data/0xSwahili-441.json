@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "0xSwahili",
+  "risk": "3",
+  "title": "Lenders must have valid BorrowOffer in order to sell their credit positions",
+  "issueId": 441,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/441"
+}
