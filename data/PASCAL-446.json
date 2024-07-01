@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "PASCAL",
+  "risk": "3",
+  "title": "A malicious borrower user can cause loss of funds for lender",
+  "issueId": 446,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/446"
+}
