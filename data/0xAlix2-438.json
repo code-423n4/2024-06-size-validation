@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "0xAlix2",
+  "risk": "2",
+  "title": "Overdue loans can't be partially repaid using `compensate`",
+  "issueId": 438,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/438"
+}
