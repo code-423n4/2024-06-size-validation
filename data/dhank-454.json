@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "dhank",
+  "risk": "2",
+  "title": "Updated tenor range is not being used to validate before creating new credit-debt Position. - Buy/SellCreditMarketOrder and Compensate",
+  "issueId": 454,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/454"
+}
