@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "sharonphiliplima",
+  "risk": "2",
+  "title": "Setting `baseStalePriceInterval` and `quoteStalePriceInterval` as immutable possesses a risk",
+  "issueId": 467,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/467"
+}
