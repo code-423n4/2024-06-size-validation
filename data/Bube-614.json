@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Bube",
+  "risk": "2",
+  "title": "The input parameter `_data` in `Size::multicall` is not checked and can be malicious",
+  "issueId": 614,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/614"
+}
