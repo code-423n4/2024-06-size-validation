@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "willycode20",
+  "risk": "2",
+  "title": " Missing check for zero value of msg.value can cause a DoS attack on the deposit function",
+  "issueId": 600,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/600"
+}
