@@ -1,13 +1,4 @@
-# L-01 Incorrect assumption of the stale price interval in L2 networks.
-
-https://data.chain.link/feeds/arbitrum/mainnet/eth-usd
-
-# L-02 Do not allow to call multicall during a multicall
-
-
-While this inconsistency cannot be exploited in the current codebase a future upgrade mechanism which relies on `state.isMulticall` can become exploitable.
-
-# L-03 Several Events are emitted wrongly:
+# L-01 Several Events are emitted incorrectly:
 
 1. In `executeCompensate` the following event is emitted:
 
@@ -40,9 +31,48 @@ emit Events.BuyCreditMarket(params.borrower, params.creditPositionId, params.ten
 
 However, there is no guarantee that `params.borrower` is the underlying borrower for `params.creditPositionId`. This comes from the fact that when `creditPositionId != RESERVED_ID` then the borrower is derived from the current state instead of using `params.borrower`.
 
-# L-04 ratePerTenor is a better slippage mechanism rather than just the apr
+# L-02 Incorrect assumption of the stale price interval in L2 networks.
 
-Take the cause `dueToDate - block.timestamp`
+The `PriceFeed.sol` contract assumes that the ETH/USD feed has a heartbeat of 3600 seconds. The issue is that this is only true in Ethereum mainnet. However, the Size project is intended to also be deployed in L2s chains such as Arbitrum, where the ETH/USD has a heartbeat of 86400 seconds.
+
+Reference: https://data.chain.link/feeds/arbitrum/mainnet/eth-usd
+
+# L-03 Do not allow to call multicall during a multicall
+
+At the beginning of the `multicall` function, the code sets the state variable `state.data.isMulticall` to `true`. Then, the code executes all the user actions specified in the data array. At the end, the code sets `state.data.isMulticall` to false again:
+
+```solidity
+function multicall(State storage state, bytes[] calldata data) internal returns (bytes[] memory results) {
+      state.data.isMulticall = true;
+
+      // ......     
+
+      state.data.isMulticall = false;
+}
+```
+
+In this way, all the calls executed in between will know that they are in a `multicall` and react accordingly. However, it is possible to change the `isMulticall` variable to false while still being in a `multicall`.
+
+This can happen by invoking the multicall function inside a batch of a previous multicall. The inner multicall will change the flag to false when finishing its execution, causing subsequent calls of the outer multicall to see the `isMulticall` flag as false.
+
+While this inconsistency cannot be exploited, in favor of the user, in the current codebase, a future upgrade mechanism that relies on `state.isMulticall` could become exploitable.
+
+# L-04 Is it possible to create a credit position with `tenor < minTenor`
+
+In the functions `validateSellCreditMarket` and `validateBuyCreditMarket` when `creditPositionID != RESERVED_ID` it means that a specific credit position was passed as argument. In this case, the `tenor` is computed as the `dueDate - block.timestamp`:
+
+```solidity
+tenor = debtPosition.dueDate - block.timestamp;
+```
+
+However, this `tenor` is not validated to not bet smaller than the `minTenor` or greater than the `maxTenor`. If we check for example, the `validateLiquidateWithReplacement` function we can find that the validation exists:
+
+```solidity
+uint256 tenor = debtPosition.dueDate - block.timestamp;
+if (tenor < state.riskConfig.minTenor || tenor > state.riskConfig.maxTenor) {
+      revert Errors.TENOR_OUT_OF_RANGE(tenor, state.riskConfig.minTenor, state.riskConfig.maxTenor);
+}
+```
 
 # L-05 Cash receiver is not paying swap fee in `LiquidateWithReplacement`
 
@@ -61,12 +91,4 @@ With the `compensate` mechanism a user can go from the debt position having only
 
 Therefore, the Size's bots will need to call `claim` for each of the created credit positions without receiving a fragmentation fee. 
 
-# L-07 Is it possible to create a credit position with `tenor < minTenor`
 
-# L-08 Some `buyCreditMarket` and `sellCreditMarket` calls can fail due to an incorrect comparison.
-
-```solidity
- if (params.amount < state.riskConfig.minimumCreditBorrowAToken) {
-         revert Errors.CREDIT_LOWER_THAN_MINIMUM_CREDIT(params.amount, state.riskConfig.minimumCreditBorrowAToken);
-}
-```
