@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "zarkk01",
+  "risk": "2",
+  "title": "Users can not delete a BorrowOffer while the protocol is paused leading to an unwanted loans when the protocol continues operating which he will have to pay fees for.",
+  "issueId": 603,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/603"
+}
