@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Bube",
+  "risk": "2",
+  "title": "The price in `PriceFeed::_getPrice` is not checked if it is between the min and max price",
+  "issueId": 539,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/539"
+}
