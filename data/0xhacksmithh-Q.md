@@ -84,7 +84,34 @@ I tested above things in HardHat By forking mainnet
 
 So summery at testing
 Deposit to aave pool 100USDC
-My 
+Then checked my account's
+- scaledBalance (`aToken.scaledBalanceOf(deployer.address)`) : 92956033
+- balanceOf (`aToken.balanceOf(deployer.address)`) : 100000000
+- liquidityIndexAt (`lendingPool.getReserveNormalizedIncome(USDC_ADDRESS)`) : 1075777402162638815192807739
+
+Then i go for withdraw
+After withdraw my account's balances now
+- USDC balance : 100000000
+- scaledBalance (`aToken.scaledBalanceOf(deployer.address)`) : 0
+- balanceOf (`aToken.balanceOf(deployer.address)`) : 0
+
+Same things i done but via size
+`NOTE : here i use hardhat for aave, and size's Math.sol on Remix to get exact answer for calculation`
+
+Deposit 100USDC to size (Considering first Deposit to SIZE and followed by first withdraw from SIZE)
+- scaledBalanceBefore : 0
+- SIZE's scaledBalanceAfter : 92956033
+- SIZE's balanceOf : 100000000
+- liquidityIndexAt (`lendingPool.getReserveNormalizedIncome(USDC_ADDRESS)`) : 1075777402162638815192807739
+- scaledAmount : scaledBalanceAfter - scaledBalanceBefore =  92956033
+
+Now minting of borrowAToken happens for USER
+```solidity
+state.data.borrowAToken.mintScaled(to, scaledAmount);
+```
+
+- USER's borrowATokens.scaledBalanceOf() : 
+- USER's borrowATokens.balanceOf() :
 
 
 ### [Low-0] Due to Rounding Down Protocol may loss some reward fee
