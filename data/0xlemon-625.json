@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "0xlemon",
+  "risk": "2",
+  "title": "Chainlink price feed will return the wrong price for USDC if underlying aggregator hits minAnswer",
+  "issueId": 625,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/625"
+}
