@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "grearlake",
+  "risk": "2",
+  "title": "Oracle will return wrong price if price goes out of chainlink's minanswer/maxanswer",
+  "issueId": 651,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/651"
+}
