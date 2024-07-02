@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "zarkk01",
+  "risk": "2",
+  "title": "Incorrect ```creditAmountIn``` calculation in ```getCreditAmountIn``` function when users sells a portion of their ```CreditPosition```",
+  "issueId": 608,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/608"
+}
