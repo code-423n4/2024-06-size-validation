@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "willycode20",
+  "risk": "3",
+  "title": " Mishandling of ETH in the [Liquidate::executeLiquidateWithReplacement] can lead to accounting error and siphoning of fund by malicious user",
+  "issueId": 616,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/616"
+}
