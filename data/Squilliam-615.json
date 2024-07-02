@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Squilliam",
+  "risk": "3",
+  "title": "`Multicall` Out-of-Gas Exploitation Enables Front-Running Attacks on Critical Protocol Functions and Can Cause Loss Of Funds",
+  "issueId": 615,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/615"
+}
