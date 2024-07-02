@@ -162,3 +162,30 @@ Above test in the `Deposit.t.sol` itself shows irrespective of the params.amount
 
 ### Recommended Mitigation Steps
 The `msg.value != params.amount` check seems redundant and should be removed
+
+## L-08 Discrepancy between code implementation and Natspec
+
+### Lines of Code
+https://github.com/code-423n4/2024-06-size/blob/cba8dc6f9e0cfb4245c111282fc2ee0bd476adf6/src/libraries/AccountingLibrary.sol#L223
+
+### Description
+The natspec comment order for the `getCreditAmountIn` method is in the worng order
+```
+    /// @param cashAmountOut The cash amount out
+-    /// @param maxCredit The maximum credit
++    /// @param maxCashAmountOut The maximum cash amount out
+-    /// @param maxCredit The maximum cash amount out
++    /// @param maxCredit The maximum credit
+    /// @param ratePerTenor The rate per tenor
+    /// @param tenor The tenor
+    /// @return creditAmountIn The credit amount in
+    /// @return fees The fees
+    function getCreditAmountIn(
+        State storage state,
+        uint256 cashAmountOut,
+        uint256 maxCashAmountOut,
+        uint256 maxCredit,
+```
+
+### Recommended Mitigation Steps
+update the comments and make sure it is in the right order
