@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "alix40",
+  "risk": "2",
+  "title": "Inconsisstency in the way `sellCreditMarket()` and `buyCreditMarket()` handels the `validateVariablePoolHasEnoughLiquidity()` check",
+  "issueId": 684,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/684"
+}
