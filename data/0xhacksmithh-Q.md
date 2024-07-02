@@ -46,16 +46,45 @@ Simple mitigation is to check for collateral before User create loan offer
 
 
 
-### [Low-0]
+### [Low-0] `params.minAPR` checks in `validateBuyCreditMarket()` is not true with actual senario.
 
+```solidity
+        // validate minAPR
+        uint256 apr = borrowOffer.getAPRByTenor(
+            VariablePoolBorrowRateParams({
+                variablePoolBorrowRate: state.oracle.variablePoolBorrowRate,
+                variablePoolBorrowRateUpdatedAt: state.oracle.variablePoolBorrowRateUpdatedAt,
+                variablePoolBorrowRateStaleRateInterval: state.oracle.variablePoolBorrowRateStaleRateInterval
+            }),
+            tenor
+        );
+        if (apr < params.minAPR) {
+            revert Errors.APR_LOWER_THAN_MIN_APR(apr, params.minAPR);
+        }
+```
 
+For let say (taking an example from official document)
+A Borrow has Borrow Offer of 5% APR for 1YEAR
+when lender wants to lend he calls `buyCreditmarket()` with params.minApr = 5%
+
+This `params.minApr` get checked with `borrowOffer.getAPRByTenor()` which return 5% in above simple example.
+
+Then in function pointer moves to execute part
+
+In `executeBuyCreditMarket()`
 
 
 
 
 
 ### [Low-0] Recidual Amount Of Token Remain In Conract Due To `Rounding`
+SIZE implementing different calculation approch than AaveV3.
 
+I tested above things in HardHat By forking mainnet
+
+So summery at testing
+Deposit to aave pool 100USDC
+My 
 
 
 ### [Low-0] Due to Rounding Down Protocol may loss some reward fee
@@ -146,8 +175,18 @@ https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/actions/BuyCr
 #### Miigation
 Its make compulsory for User to set configuration, or newly created credit position should created with `forSale = false` have feature to change its later. 
 
-### [Low-0] Chainlink Price Feed Have Improper Validation
+### [Low-0] Chainlink Price Feed Have some missing checks for Validation
+```diff
+-       (, int256 price,, uint256 updatedAt,) = aggregator.latestRoundData();
++       (uint80 roundId, int256 price,, uint256 updatedAt, uint80 answeredInRound) = aggregator.latestRoundData();
 
+        if (price <= 0) revert Errors.INVALID_PRICE(address(aggregator), price);
+        if (block.timestamp - updatedAt > stalePriceInterval) {
+            revert Errors.STALE_PRICE(address(aggregator), updatedAt);
+        }
++       require(answeredInRound >= roundId, "price is stale");
++       require(updatedAt > 0, "round is incomplete");
+```
 
 
 ### [Low-0] PriceFeed Will Use The Wrong Price If The Chainlink Registry Returns Price Outside min/max Range 
@@ -171,9 +210,40 @@ Mentioned in above code segment
 
 ### [Low-0] Function May Be Trying To transfer 0 amount
 
+Below we can see that `protocolProfitCollateralToken` could be 0, if the liquidation is not profitable
 
+so in that case `state.feeConfig.feeRecipient` transfered with 0 amount.
+```solidity
+        uint256 assignedCollateral = state.getDebtPositionAssignedCollateral(debtPosition);
+        uint256 debtInCollateralToken = state.debtTokenAmountToCollateralTokenAmount(debtPosition.futureValue);
+        uint256 protocolProfitCollateralToken = 0;
+        // profitable liquidation
+        if (assignedCollateral > debtInCollateralToken) {
+ ...
+...
+            uint256 collateralRemainderCap =
+                Math.mulDivDown(debtInCollateralToken, state.riskConfig.crLiquidation, PERCENT);
 
-### [Low-0] RatePerTenor
+            collateralRemainder = Math.min(collateralRemainder, collateralRemainderCap);
+
+            protocolProfitCollateralToken = Math.mulDivDown(collateralRemainder, collateralProtocolPercent, PERCENT);
+        } else {
+            // unprofitable liquidation
+            liquidatorProfitCollateralToken = assignedCollateral;
+        }
+
+        state.data.borrowAToken.transferFrom(msg.sender, address(this), debtPosition.futureValue);
+        state.data.collateralToken.transferFrom(debtPosition.borrower, msg.sender, liquidatorProfitCollateralToken);
++       if (protocolProfitCollateralToken !=0){
+        state.data.collateralToken.transferFrom(
+            debtPosition.borrower, state.feeConfig.feeRecipient, protocolProfitCollateralToken
+        )};
+```
+https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/actions/Liquidate.sol#L92-L122
+
+#### Mitigation
+Only transfer token when transfered amount is non-zero as showed above 
+
 
 
 
@@ -182,3 +252,25 @@ Mentioned in above code segment
 
 
 ### [Low-0] Repay Should Allowed In Paused Event Period or User Should Allowed Some Grace Period After Unpause To Supply Collateral And Escape From UnWanted Liquidation. 
+
+`ISizeAdmin.sol` have some admin functions like 
+```solidity
+    /// @notice Pauses the protocol
+    ///         Only callabe by the DEFAULT_ADMIN_ROLE
+    function pause() external;
+
+    /// @notice Unpauses the protocol
+    ///         Only callabe by the DEFAULT_ADMIN_ROLE
+    function unpause() external;
+}
+```
+https://github.com/code-423n4/2024-06-size/blob/main/src/interfaces/ISizeAdmin.sol#L25-L32
+
+So basically whole system goes into pause/unpause mode when this functions called including some crucial functions like `repay` `deposit` etc
+
+if in this duration, some major market correction happens / market dip appears then Collateral ratios of Users could fall below liquidation and they subject to liquidation, (and User can do nothing about it, nither they increase their CR via depositing more underlayingCollateral token, no settle their loans)
+
+On very next moment profitable liqudit position get liqudated by liquidators or Bots.
+
+#### Mitigation
+To Deal with this type of situation Protocol should allow some functions to operate even Pause mode Or should give some grace period to Borrowers to take decision to To rise their CRs above thresold or wish to getliquidated.
