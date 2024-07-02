@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "willycode20",
+  "risk": "2",
+  "title": "The [selfLiquidate::executeSelfLiquidate] is missing a step to account for transferring collateral to the lender and any other entity after self Liquidation",
+  "issueId": 655,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/655"
+}
