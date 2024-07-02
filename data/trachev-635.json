@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "trachev",
+  "risk": "2",
+  "title": "Invalid validation in `UpdateConfig.sol` prevents the swap fee apr from being more than the minimum",
+  "issueId": 635,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/635"
+}
