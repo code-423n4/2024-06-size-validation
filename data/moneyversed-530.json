@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "moneyversed",
+  "risk": "3",
+  "title": "Manipulation of collateral ratios in `SelfLiquidate` via precision and timing exploits leading to unjust collateral extraction",
+  "issueId": 530,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/530"
+}
