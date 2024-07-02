@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "0xpetern",
+  "risk": "2",
+  "title": "Insufficient access control on Default admin which can compromise the protocol",
+  "issueId": 717,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/717"
+}
