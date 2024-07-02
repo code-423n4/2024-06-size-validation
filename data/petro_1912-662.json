@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "petro_1912",
+  "risk": "3",
+  "title": "`NonTransferrableScaledToken` uses wrong unscaled calculation.",
+  "issueId": 662,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/662"
+}
