@@ -102,15 +102,15 @@ Deposit 100USDC to size (Considering first Deposit to SIZE and followed by first
 - scaledBalanceBefore : 0
 - SIZE's scaledBalanceAfter : 92955238
 - SIZE's balanceOf : 100000000
-- liquidityIndexAt (`lendingPool.getReserveNormalizedIncome(USDC_ADDRESS)`) : 1075777402162638815192807739
-- scaledAmount : scaledBalanceAfter - scaledBalanceBefore =  92956033
+- liquidityIndexAt (`lendingPool.getReserveNormalizedIncome(USDC_ADDRESS)`) : 1075786603020953661152106365
+- scaledAmount : scaledBalanceAfter - scaledBalanceBefore =  92955238
 
 Now minting of borrowAToken happens for USER
 ```solidity
 state.data.borrowAToken.mintScaled(to, scaledAmount);
 ```
 
-- USER's borrowATokens.scaledBalanceOf() : 92956033
+- USER's borrowATokens.scaledBalanceOf() : 92955238
 - USER's borrowATokens.balanceOf() : 99999999
 which clearly less than above aave example
 
@@ -137,6 +137,7 @@ And when User go for withdraw, withdraw() has following code segment
 https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/actions/Withdraw.sol#L55-L58
 
 which call further
+
 ```solidity
     function withdrawUnderlyingTokenFromVariablePool(State storage state, address from, address to, uint256 amount)
         external
@@ -158,8 +159,8 @@ https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/DepositTokenL
 
 AS SIZE here try to withdraw `99999999` from aave
 
-scaledAmount = 92956033 - 92956031 = 2
- = 99999999 - 99999997 = 2
+scaledAmountRemain = 92955238 - 92955237 = 1
+balanceRemain = 99999999 - 99999998 = 1
 
 That some Dust remain in User account, which in longer run could be become significant amount.
 
@@ -283,7 +284,7 @@ async function main() {
   console.log(`///////////////////////// withdraw //////////////////////`);
   console.log();
 
-  const testBalance = 99999999
+  const testBalance = 99999999 // get from Size's Math.mulDivDown() by fitting above value.
 
   await lendingPool.withdraw(USDC_ADDRESS, testBalance, deployer.address);
 
