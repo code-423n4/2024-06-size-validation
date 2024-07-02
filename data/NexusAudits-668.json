@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "NexusAudits",
+  "risk": "2",
+  "title": "Unchecked Maximum Slippage in Liquidation Exposes Protocol to Market Manipulation and Disproportionate Gains for Whales",
+  "issueId": 668,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/668"
+}
