@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Shield",
+  "risk": "2",
+  "title": "The Market Maker does not pay the `swapFee` and it is the taker who pays the `swapFee` in the `executeBuyCreditMarket` function",
+  "issueId": 712,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/712"
+}
