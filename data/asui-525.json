@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "asui",
+  "risk": "3",
+  "title": "Overdue or underwater positions may become unliquidatable if there are not enough borrowATokens to repay lenders.",
+  "issueId": 525,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/525"
+}
