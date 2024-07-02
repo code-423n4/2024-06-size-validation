@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "hyh",
+  "risk": "2",
+  "title": "Ordinary liquidations can become unprofitable as expiration time cannot be set",
+  "issueId": 503,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/503"
+}
