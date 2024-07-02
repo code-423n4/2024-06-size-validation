@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "NexusAudits",
+  "risk": "2",
+  "title": "Potential Misconfiguration of PriceFeed Contract on BASE Mainnet L2",
+  "issueId": 675,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/675"
+}
