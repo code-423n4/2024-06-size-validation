@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "grearlake",
+  "risk": "2",
+  "title": "Lack of function `claimReward()` to claim reward",
+  "issueId": 571,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/571"
+}
