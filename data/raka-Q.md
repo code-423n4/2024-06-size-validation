@@ -1,3 +1,7 @@
+### L-01 No way of canceling limit order
+
+There should be a process to delete a limit order.
+
 ### N-01 Use underscore for internal function
 
  https://github.com/code-423n4/2024-06-size/blob/main/src%2Flibraries%2FYieldCurveLibrary.sol#L38
