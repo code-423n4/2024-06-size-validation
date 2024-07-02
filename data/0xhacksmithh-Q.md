@@ -82,12 +82,12 @@ SIZE implementing different calculation approch than AaveV3.
 
 I tested above things in HardHat By forking mainnet
 
-So summery at testing
+So summery Of testing
 Deposit to aave pool 100USDC
 Then checked my account's
-- scaledBalance (`aToken.scaledBalanceOf(deployer.address)`) : 92956033
+- scaledBalance (`aToken.scaledBalanceOf(deployer.address)`) : 92955238
 - balanceOf (`aToken.balanceOf(deployer.address)`) : 100000000
-- liquidityIndexAt (`lendingPool.getReserveNormalizedIncome(USDC_ADDRESS)`) : 1075777402162638815192807739
+- liquidityIndexAt (`lendingPool.getReserveNormalizedIncome(USDC_ADDRESS)`) : 1075786603020953661152106365
 
 Then i go for withdraw
 After withdraw my account's balances now
@@ -100,7 +100,7 @@ Same things i done but via size
 
 Deposit 100USDC to size (Considering first Deposit to SIZE and followed by first withdraw from SIZE)
 - scaledBalanceBefore : 0
-- SIZE's scaledBalanceAfter : 92956033
+- SIZE's scaledBalanceAfter : 92955238
 - SIZE's balanceOf : 100000000
 - liquidityIndexAt (`lendingPool.getReserveNormalizedIncome(USDC_ADDRESS)`) : 1075777402162638815192807739
 - scaledAmount : scaledBalanceAfter - scaledBalanceBefore =  92956033
@@ -110,9 +110,224 @@ Now minting of borrowAToken happens for USER
 state.data.borrowAToken.mintScaled(to, scaledAmount);
 ```
 
-- USER's borrowATokens.scaledBalanceOf() : 
-- USER's borrowATokens.balanceOf() :
+- USER's borrowATokens.scaledBalanceOf() : 92956033
+- USER's borrowATokens.balanceOf() : 99999999
+which clearly less than above aave example
 
+This difference due to how `_unscaled` value calculated differently in SIZE and AAVE
+
+SIZE use a Rounding Down Approch
+```solidity
+    function _unscale(uint256 scaledAmount) internal view returns (uint256) {
+        return Math.mulDivDown(scaledAmount, liquidityIndex(), WadRayMath.RAY);
+    }
+```
+https://github.com/code-423n4/2024-06-size/blob/main/src/token/NonTransferrableScaledToken.sol#L98-L100
+
+https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/Math.sol#L27-L29
+Due to this User Balane is 1 wei less
+
+And when User go for withdraw, withdraw() has following code segment
+```solidity
+            amount = Math.min(params.amount, state.data.borrowAToken.balanceOf(msg.sender));
+            if (amount > 0) {
+                state.withdrawUnderlyingTokenFromVariablePool(msg.sender, params.to, amount);
+            }
+```
+https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/actions/Withdraw.sol#L55-L58
+
+which call further
+```solidity
+    function withdrawUnderlyingTokenFromVariablePool(State storage state, address from, address to, uint256 amount)
+        external
+    {
+        IAToken aToken =
+            IAToken(state.data.variablePool.getReserveData(address(state.data.underlyingBorrowToken)).aTokenAddress);
+
+        uint256 scaledBalanceBefore = aToken.scaledBalanceOf(address(this));
+
+        // slither-disable-next-line unused-return
+        state.data.variablePool.withdraw(address(state.data.underlyingBorrowToken), amount, to);
+
+        uint256 scaledAmount = scaledBalanceBefore - aToken.scaledBalanceOf(address(this));
+
+        state.data.borrowAToken.burnScaled(from, scaledAmount);
+    }
+```
+https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/DepositTokenLibrary.sol#L74-L88
+
+AS SIZE here try to withdraw `99999999` from aave
+
+scaledAmount = 92956033 - 92956031 = 2
+ = 99999999 - 99999997 = 2
+
+That some Dust remain in User account, which in longer run could be become significant amount.
+
+#### Test Code
+```solidity
+const { ethers } = require("hardhat");
+
+// Aave V3 Lending Pool address and USDC token address on Ethereum mainnet
+// const LENDING_POOL_ADDRESS = "0x7B2c0A2F4E4627bF6A7BdA8C83B29170356bF9b3"; 
+const lendingPoolAddress = "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2";
+const USDC_ADDRESS = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"; 
+const AAVE_PROTOCOL_DATA_PROVIDER = "0x7B4EB56E7CD4b454BA8ff71E4518426369a138a3"; 
+
+// Simplified ERC20 ABI
+const ERC20_ABI = [
+  "function approve(address spender, uint256 amount) external returns (bool)",
+  "function balanceOf(address account) external view returns (uint256)",
+  "function transfer(address recipient, uint256 amount) returns (bool)",
+  "function transferFrom(address sender, address recipient, uint256 amount) public returns (bool)",
+  "function allowance(address owner, address spender) external view returns (uint256)"
+];
+
+// Simplified Aave Lending Pool ABI
+const LENDING_POOL_ABI = [
+  "function deposit(address asset, uint256 amount, address onBehalfOf, uint16 referralCode) external",
+  "function getReserveNormalizedIncome(address asset) external view virtual override returns (uint256)",
+  "function withdraw(address asset, uint256 amount, address to) public virtual override returns (uint256)"
+];
+
+// Simplified Aave Protocol Data Provider ABI
+const DATA_PROVIDER_ABI = [
+  "function getReserveTokensAddresses(address asset) external view returns (address aTokenAddress, address stableDebtTokenAddress, address variableDebtTokenAddress)"
+  
+];
+
+// Simplified aToken ABI
+const ATOKEN_ABI = [
+  "function scaledBalanceOf(address user) external view returns (uint256)",
+  "function balanceOf(address account) external view returns (uint256)"
+];
+
+async function main() {
+    const [deployer] = await ethers.getSigners();
+
+    // Address with a large USDC balance (you can find such addresses on Etherscan)
+    const richUSDCAccount = "0x4B16c5dE96EB2117bBE5fd171E4d203624B014aa";
+
+    // Impersonate the rich USDC account
+    await hre.network.provider.request({
+      method: "hardhat_impersonateAccount",
+      params: [richUSDCAccount],
+    });
+  
+    const impersonatedSigner = await ethers.getSigner(richUSDCAccount);
+  
+    // Get USDC contract instance
+     let usdc = new ethers.Contract(USDC_ADDRESS, ERC20_ABI, impersonatedSigner);
+  
+    // Transfer USDC to deployer address
+    const transferAmount = ethers.utils.parseUnits("100", 6); // 1000 USDC
+    await usdc.transfer(deployer.address, transferAmount);
+  
+    // Check the USDC balance of the deployer address
+    const deployerBalance = await usdc.balanceOf(deployer.address);
+    console.log(`Deployer USDC Balance: ${ethers.utils.formatUnits(deployerBalance, 6)} USDC`);
+  
+    // Stop impersonating the account
+    await hre.network.provider.request({
+      method: "hardhat_stopImpersonatingAccount",
+      params: [richUSDCAccount],
+    });
+
+  // Get USDC contract instance
+  usdc = new ethers.Contract(USDC_ADDRESS, ERC20_ABI, deployer);
+
+  // Get Aave Protocol Data Provider contract instance
+  const dataProvider = new ethers.Contract(AAVE_PROTOCOL_DATA_PROVIDER, DATA_PROVIDER_ABI, deployer);
+
+  // Get Lending Pool contract instance
+  const lendingPool = new ethers.Contract(lendingPoolAddress, LENDING_POOL_ABI, deployer);
+
+  const amount = ethers.utils.parseUnits("100", 6); // 100 USDC with 6 decimals
+
+  // Check USDC balance
+  const balance = await usdc.balanceOf(deployer.address);
+  console.log(`Balance: ${ethers.utils.formatUnits(balance, 6)} USDC`);
+
+  if (balance.lt(amount)) {
+    throw new Error("Insufficient USDC balance");
+  }
+
+  // if (allowance.lt(amount)) {
+  //   await usdc.approve(lendingPoolAddress, amount);
+  // }
+
+   await usdc.approve(lendingPoolAddress, amount);
+
+  // Check allowance
+  const allowance = await usdc.allowance(deployer.address, lendingPoolAddress);
+  console.log(`Allowance To Pool: ${ethers.utils.formatUnits(allowance, 6)} USDC`);
+
+  // Deposit USDC into Aave
+  await lendingPool.deposit(USDC_ADDRESS, amount, deployer.address, 0);
+
+  const liquidityIdex = await lendingPool.getReserveNormalizedIncome(USDC_ADDRESS);
+  console.log(`Liquidity Index`, liquidityIdex);
+
+  // Fetch aToken address for USDC
+  const { aTokenAddress } = await dataProvider.getReserveTokensAddresses(USDC_ADDRESS);
+  const aToken = new ethers.Contract(aTokenAddress, ATOKEN_ABI, deployer);
+
+  // Fetch scaledBalanceOf and balanceOf
+  const scaledBalance = await aToken.scaledBalanceOf(deployer.address);
+  const balanceOf = await aToken.balanceOf(deployer.address);
+
+  console.log(`Scaled Balance before: ${scaledBalance.toString()}`);
+  console.log(`Balance before: ${balanceOf.toString()}`);
+
+
+  console.log(`///////////////////////// withdraw //////////////////////`);
+  console.log(`///////////////////////// withdraw //////////////////////`);
+  console.log();
+
+  const testBalance = 99999999
+
+  await lendingPool.withdraw(USDC_ADDRESS, testBalance, deployer.address);
+
+    // Fetch scaledBalanceOf and balanceOf
+    const scaledBalanceA = await aToken.scaledBalanceOf(deployer.address);
+    const balanceOfA = await aToken.balanceOf(deployer.address);
+  
+    console.log(`Scaled Balance after: ${scaledBalanceA.toString()}`);
+    console.log(`Balance after: ${balanceOfA.toString()}`);
+
+    const balanceA = await usdc.balanceOf(deployer.address);
+    console.log(`Balance After: ${ethers.utils.formatUnits(balanceA, 6)} USDC`);
+
+}
+
+main()
+  .then(() => process.exit(0))
+  .catch(error => {
+    console.error(error);
+    process.exit(1);
+  });
+
+```
+
+#### Test Result
+```solidity
+sathya@DESKTOP-I3RU8Q3:~/aave-deposit$ npx hardhat run scripts/test2.js --network hardhat
+
+Deployer USDC Balance: 100.0 USDC
+Balance: 100.0 USDC
+Allowance To Pool: 100.0 USDC
+Liquidity Index BigNumber { value: "1075786603020953661152106365" }
+Scaled Balance before: 92955238
+Balance before: 100000000
+///////////////////////// withdraw //////////////////////
+///////////////////////// withdraw //////////////////////
+
+Scaled Balance after: 1
+Balance after: 1
+Balance After: 99.999999 USDC
+```
+
+#### Mitigation 
+Try to AAVE's calculation methods which are more precise
 
 ### [Low-0] Due to Rounding Down Protocol may loss some reward fee
 
