@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Bigsam",
+  "risk": "2",
+  "title": "A lender can Bypassing the validateUserIsNotBelowOpeningLimitBorrowCR  Check in BuyCreditMarket there breaking a main invariant",
+  "issueId": 553,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/553"
+}
