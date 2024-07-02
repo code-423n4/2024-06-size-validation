@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Bigsam",
+  "risk": "2",
+  "title": "A Lenders address can be matched against his borrow offer in the Liquidated with Replacement Function thereby leading to loss of funds by the lender.",
+  "issueId": 583,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/583"
+}
