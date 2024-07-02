@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Bigsam",
+  "risk": "2",
+  "title": "Liquidation with Replacement Transfers All the liquidatorProfitBorrowToken to the Protocol's Fee Collector without Forwarding the Liquidator(KEEPER ROLE) is share of the BorrowAtokenprofit",
+  "issueId": 619,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/619"
+}
