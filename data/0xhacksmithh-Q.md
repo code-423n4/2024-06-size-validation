@@ -1,4 +1,4 @@
-### [Low-0] As Referral Program Of Aave Currently Inactive, So In `variablePool.supply(_, _, _, 0). Here 0 Passed But This Refferal Program Could Activated In Future, In that Case SIZE Will Not Able To Take Advantage Of This.
+### [Low-01] As Referral Program Of Aave Currently Inactive, So In `variablePool.supply(_, _, _, 0). Here 0 Passed But This Refferal Program Could Activated In Future, In that Case SIZE Will Not Able To Take Advantage Of This.
 
 Aave Developer documentation have following 
 `Referral supply is currently inactive, you can pass 0 as referralCode. This program may be activated in the future through an Aave governance proposal`
@@ -17,7 +17,7 @@ May be Use some state variable for `referral code` and change it when ever its g
 
 
 
-### [Low-0] AnyOne Can Create A New Loan Offer / New Borrow Offer, Irrespective they Have Deposited Collateral Or Not.
+### [Low-02] AnyOne Can Create A New Loan Offer / New Borrow Offer, Irrespective they Have Deposited Collateral Or Not.
 There is no validation that User creating loan offer has collateral. Although they will not receive loan as in `buyCreditMarket()` function `validateVariablePoolHasEnoughLiquidity()` will failed.
 
 But Point is Many Users could create those type of Offers and populate whole system.
@@ -46,7 +46,7 @@ Simple mitigation is to check for collateral before User create loan offer
 
 
 
-### [Low-0] `params.minAPR` checks in `validateBuyCreditMarket()` is not true with actual senario.
+### [Low-03] `params.minAPR` checks in `validateBuyCreditMarket()` is not true with actual senario.
 
 ```solidity
         // validate minAPR
@@ -64,20 +64,37 @@ Simple mitigation is to check for collateral before User create loan offer
 ```
 
 For let say (taking an example from official document)
-A Borrow has Borrow Offer of 5% APR for 1YEAR
+A Borrow has Borrow Offer of 5% APR for 30 Days
 when lender wants to lend he calls `buyCreditmarket()` with params.minApr = 5%
 
-This `params.minApr` get checked with `borrowOffer.getAPRByTenor()` which return 5% in above simple example.
+This `params.minApr` get checked with `borrowOffer.getAPRByTenor()` which return 5% in above simple example. (ignore market adjustments)
 
 Then in function pointer moves to execute part
 
-In `executeBuyCreditMarket()`
+In `executeBuyCreditMarket()` `ratePerTenor` get via `Math.mulDivDown(apr, tenor, Year)`
+In this calculation 
+apr : 0.05*10**18
+tenor : 2,592,000 seconds
+YEAR : 31,536,000 seconds
+
+which give ratePerTenor : 0.41% per Month
+
+In solidity 1 YEAR = 12 Months
+
+so Acuatual APR Lender receiving is = 4.92%
+
+where Lender intension to receive minAPR of 5%
+
+So this invariant `(apr > params.minAPR)` is not actually hold in practical senario
+
+#### Mitigation
+Should reconsider this calculation 
 
 
 
 
 
-### [Low-0] Recidual Amount Of Token Remain In Conract Due To `Rounding`
+### [Low-04] Recidual Amount Of Token Remain In Conract Due To `Rounding`
 SIZE implementing different calculation approch than AaveV3.
 
 I tested above things in HardHat By forking mainnet
@@ -330,7 +347,7 @@ Balance After: 99.999999 USDC
 #### Mitigation 
 Try to AAVE's calculation methods which are more precise
 
-### [Low-0] Due to Rounding Down Protocol may loss some reward fee
+### [Low-05] Due to Rounding Down Protocol may loss some reward fee
 
 In `executeLiquidate()` there is below code segment
 ```solidity
@@ -360,7 +377,7 @@ its a standard that fee taken by protocol should always in favour of Protocol an
 
 
 
-### [Low-0] `weth.forceApprove()` in `executeDeposit()` is not relevant
+### [Low-06] `weth.forceApprove()` in `executeDeposit()` is not relevant
 
 ```solidity
   function executeDeposit(State storage state, DepositParams calldata params) public {
@@ -402,11 +419,42 @@ Re-configure function logic.
 
 
 
-### [Low-0] By Default A Newly Created CreditPosition Is Set To `For Sale = True` Which Could Problematic
+### [Low-07] `executeLiquidateWithReplacement()`'s Natspec comment and Code contradicting each other
+
+```solidity
+....
+....
+    /// @return liquidatorProfitCollateralToken The amount of collateral tokens liquidator received from the liquidation
+    /// @return liquidatorProfitBorrowToken The amount of borrow tokens liquidator received from the liquidation
+    function liquidateWithReplacement(LiquidateWithReplacementParams calldata params)
+        external
+        payable
+        returns (uint256 liquidatorProfitCollateralToken, uint256 liquidatorProfitBorrowToken);
+```
+https://github.com/code-423n4/2024-06-size/blob/main/src/interfaces/ISize.sol#L149-L153
+
+`ISizePool.liquidateWithReplacement()` says that `liquidatorProfitBorrowToken` amount will send to `liquidator` who is in this case `KEEPER_ROLE`
+
+But in actual code `liquidatorProfitBorrowToken` send to feeRecipient (`state.feeConfig.feeRecipient`)
+
+```solidity
+        state.data.borrowAToken.transferFrom(address(this), state.feeConfig.feeRecipient, liquidatorProfitBorrowToken);
+```
+https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/actions/LiquidateWithReplacement.sol#L161-L162
+
+
+
+### [Low-08] By Default A Newly Created CreditPosition Is Set To `For Sale = True` Which Could Problematic
 
 If user's didn't configured eairlier, then may be his Buyed credit could be taken by other lenders without his intention, as by default CreditPosition's forSale parameter set as TRUE.
 
-As for below code segment from `BuyCreditMarket.sol`'s `validateBuyCreditMarket()` if no configuration happen for User then `user.allCreditPositionsForSaleDisabled = false` so in that case this check get passed.
+OR
+
+A senario, a User has Multiple Credit Positions and he want to sell Some only but not others(which are more profitable for him), in that case he has to
+
+As for below code segment from `BuyCreditMarket.sol`'s `validateBuyCreditMarket()` if no configuration happen for User then `user.allCreditPositionsForSaleDisabled = false` so in that case he has to set `allCreditPositionsForSaleDisabled = false`, if any good offfer he could be front-runned before he goes and made modification in `SetUserConfiguration.sol` contract for his newly created position.
+
+I know multicall available to deal this but, when User does normal Tx their could be front-run chance.
 
 ```solidity
             if (user.allCreditPositionsForSaleDisabled || !creditPosition.forSale) {
@@ -416,9 +464,9 @@ As for below code segment from `BuyCreditMarket.sol`'s `validateBuyCreditMarket(
 https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/actions/BuyCreditMarket.sol#L75-L77
 
 #### Miigation
-Its make compulsory for User to set configuration, or newly created credit position should created with `forSale = false` have feature to change its later. 
+Its make compulsory for User to set configuration, or newly created credit position should created with `forSale = false` & protocol have feature that could change its later. 
 
-### [Low-0] Chainlink Price Feed Have some missing checks for Validation
+### [Low-09] Chainlink Price Feed Have some missing checks for Validation
 ```diff
 -       (, int256 price,, uint256 updatedAt,) = aggregator.latestRoundData();
 +       (uint80 roundId, int256 price,, uint256 updatedAt, uint80 answeredInRound) = aggregator.latestRoundData();
@@ -432,7 +480,7 @@ Its make compulsory for User to set configuration, or newly created credit posit
 ```
 
 
-### [Low-0] PriceFeed Will Use The Wrong Price If The Chainlink Registry Returns Price Outside min/max Range 
+### [Low-10] PriceFeed Will Use The Wrong Price If The Chainlink Registry Returns Price Outside min/max Range 
 
 Chainlink aggregators have a built in circuit breaker if the price of an asset goes outside of a predetermined price band. The result is that if an asset experiences a huge drop in value (i.e. LUNA crash) the price of the oracle will continue to return the minPrice instead of the actual price of the asset. This would allow user to continue borrowing with the asset but at the wrong price. This is exactly what happened to [Venus on BSC when LUNA imploded](https://rekt.news/venus-blizz-rekt/).
 
@@ -451,7 +499,7 @@ https://github.com/code-423n4/2024-06-size/blob/main/src/oracle/PriceFeed.sol#L8
 Mentioned in above code segment
 
 
-### [Low-0] Function May Be Trying To transfer 0 amount
+### [Low-11] Function May Be Trying To transfer 0 amount
 
 Below we can see that `protocolProfitCollateralToken` could be 0, if the liquidation is not profitable
 
@@ -490,11 +538,34 @@ Only transfer token when transfered amount is non-zero as showed above
 
 
 
-### [Low-0] Many NatSpec Comments Are Wrong
+### [Low-12] Many NatSpec Comments Are Wrong
+#### Input Params and params mentioned in NatSpec mismatched in `Compensate()`, create huge confusion.
+
+ISizePool.compensate() has following Natspec
+```solidity
+    ///     - uint256 debtPositionToRepayId: The id of the debt position to repay
+    ///     - uint256 creditPositionToCompensateId: The id of the credit position to compensate
+    ///     - uint256 amount: The amount of tokens to compensate (in decimals, e.g. 1_000e6 for 1000 aUSDC)
+```
+https://github.com/code-423n4/2024-06-size/blob/main/src/interfaces/ISize.sol#L159-L161
+
+while the struct `CompensateParams` that passed as parameter to `compensate()` has following namings
+```solidity
+    struct CompensateParams {
+     
+        uint256 creditPositionWithDebtToRepayId;
+     
+        uint256 creditPositionToCompensateId;
+     
+        uint256 amount;
+    }
+```
+https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/actions/Compensate.sol#L16-L25
+
+Here we clearly shows that 1st parameter is mismatched in both which create huge confusion due to their naming.
 
 
-
-### [Low-0] Repay Should Allowed In Paused Event Period or User Should Allowed Some Grace Period After Unpause To Supply Collateral And Escape From UnWanted Liquidation. 
+### [Low-13] Repay Should Allowed In Paused Event Period or User Should Allowed Some Grace Period After Unpause To Supply Collateral And Escape From UnWanted Liquidation. 
 
 `ISizeAdmin.sol` have some admin functions like 
 ```solidity
