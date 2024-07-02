@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "hyh",
+  "risk": "3",
+  "title": "It's possible to manipulate new credit position `forSale` flag via `createCreditPosition()`",
+  "issueId": 727,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/727"
+}
