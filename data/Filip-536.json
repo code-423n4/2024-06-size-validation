@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "Filip",
+  "risk": "2",
+  "title": "When both `low` and `high` are large enough value, overflow will occur",
+  "issueId": 536,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/536"
+}
