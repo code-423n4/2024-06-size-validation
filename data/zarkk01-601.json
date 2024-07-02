@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "zarkk01",
+  "risk": "2",
+  "title": "Users can not deposit and repay their loans if the contract is paused leading to unintended and uncontrollable overdue liquidations",
+  "issueId": 601,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/601"
+}
