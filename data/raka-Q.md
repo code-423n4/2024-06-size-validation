@@ -19,8 +19,11 @@ https://github.com/code-423n4/2024-06-size/blob/main/src%2FSize.sol#L50-L52
 
 
 ### N-03 Cyclomatic complexity 
+
+All validation process should more manageable and early exit.
 Here msg.value and prams.amount should check in one if statment.
 https://github.com/code-423n4/2024-06-size/blob/main/src%2Flibraries%2FYieldCurveLibrary.sol#L51-L74
+
 
 
 https://github.com/code-423n4/2024-06-size/blob/main/src%2Flibraries%2Factions%2FDeposit.sol#L36
