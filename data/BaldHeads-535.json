@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "BaldHeads",
+  "risk": "2",
+  "title": "Loan and Borrow Offers Are Not Being Reset After the User Deposit Has Been Used, Leaving Stale Orders on the Order Book.",
+  "issueId": 535,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/535"
+}
