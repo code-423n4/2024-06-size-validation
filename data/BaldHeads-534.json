@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "BaldHeads",
+  "risk": "2",
+  "title": "Users Can Place Offers That Are Never Collateralized, Leading to Many Dirty Orders in the Order Book",
+  "issueId": 534,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/534"
+}
