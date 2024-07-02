@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "NexusAudits",
+  "risk": "2",
+  "title": "Insufficient Handling of Deviation Threshold for ETH/USD Price Feed on BASE L2",
+  "issueId": 674,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/674"
+}
