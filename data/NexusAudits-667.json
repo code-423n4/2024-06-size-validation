@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "NexusAudits",
+  "risk": "2",
+  "title": "Round Completeness Check Omission in PriceFeed Contract",
+  "issueId": 667,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/667"
+}
