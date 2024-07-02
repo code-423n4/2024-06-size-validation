@@ -45,7 +45,88 @@ Simple mitigation is to check for collateral before User create loan offer
 
 
 
+
+### [Low-0]
+
+
+
+
+
+
+
 ### [Low-0] Recidual Amount Of Token Remain In Conract Due To `Rounding`
+
+
+
+### [Low-0] Due to Rounding Down Protocol may loss some reward fee
+
+In `executeLiquidate()` there is below code segment
+```solidity
+            // cap the collateral remainder to the liquidation collateral ratio
+            //   otherwise, the split for non-underwater overdue loans could be too much
+            uint256 collateralRemainderCap =
+                Math.mulDivDown(debtInCollateralToken, state.riskConfig.crLiquidation, PERCENT);
+
+            collateralRemainder = Math.min(collateralRemainder, collateralRemainderCap);
+
+            protocolProfitCollateralToken = Math.mulDivDown(collateralRemainder, collateralProtocolPercent, PERCENT);
+```
+https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/actions/Liquidate.sol#L107-L112
+
+where `protocolProfitCollateralToken` calculated on Profitable liquidation where `assignCollateral > debtInCollateral` and `protocolProfitCollateralToken` amount of token taken by protocol fee receipient.
+
+Here we can see Double Rounding Down occurs in calculation.
+
+first Rounding Down happens in calculation of Cap variable `collateralRemainderCap`
+
+then let say `collateralRemainderCap` is minimum b/w `collateralRemainder & collateralRemainderCap` so collateralRemainder = collateralRemainderCap
+
+And then second rounding down happens in `protocolProfitCollateralToken` calculation
+
+#### Mitigation
+its a standard that fee taken by protocol should always in favour of Protocol and always Rounding Up.
+
+
+
+### [Low-0] `weth.forceApprove()` in `executeDeposit()` is not relevant
+
+```solidity
+  function executeDeposit(State storage state, DepositParams calldata params) public {
+        address from = msg.sender;
+        uint256 amount = params.amount;
+        if (msg.value > 0) {
+            // do not trust msg.value (see `Multicall.sol`)
+            amount = address(this).balance;
+            // slither-disable-next-line arbitrary-send-eth
+            state.data.weth.deposit{value: amount}();
+            state.data.weth.forceApprove(address(this), amount);
+            from = address(this);
+        }
+....
+....
+```
+https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/actions/Deposit.sol#L67-L73
+
+If we carefully observe here is that caller to weth i.e `address(this)` forceApproving same `address(this)` with amount. then further from overrided with address this
+
+when actual token trasfer happening 
+```solidity
+    function depositUnderlyingCollateralToken(State storage state, address from, address to, uint256 amount) external {
+        IERC20Metadata underlyingCollateralToken = IERC20Metadata(state.data.underlyingCollateralToken);
+        underlyingCollateralToken.safeTransferFrom(from, address(this), amount);
+        state.data.collateralToken.mint(to, amount);
+    }
+```
+https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/DepositTokenLibrary.sol#L24-L26
+
+here when underlyingCollateralToken's transfer happening through safeTransferFrom
+from = address(this)
+to = address(this)
+
+so basically self token transfering happen here. I don't see any use case here.
+
+#### Mitigation
+Re-configure function logic.
 
 
 
