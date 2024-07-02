@@ -1,0 +1,8 @@
+{
+  "contest": 389,
+  "handle": "elhaj",
+  "risk": "3",
+  "title": "Incorrect Liquidity Check in Variable Pool Disrupts Borrowing Operations",
+  "issueId": 559,
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/559"
+}
