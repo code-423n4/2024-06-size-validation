@@ -1,0 +1,115 @@
+issue,title,validator comment,grade,root cause (URL),size
+validation-529,ETH collateral depositers will lose funds in the depegged event of weth,,Unsatisfactory,,24
+validation-174,executeSelfLiquidate Function: Pass assignedCollateral as Argument to transferFrom,,Unsatisfactory,,36
+validation-692,Loan limit check logic loophole leads to loan limit exceeding problem,,Unsatisfactory,,38
+validation-97,Potential Reentrancy Vulnerability in Deposit and Withdraw Functions,,Unsatisfactory,,39
+validation-486, Insufficient Repayment Handling in repayDebt Function,,Unsatisfactory,,43
+validation-8,A reentrancy attack on the withdraw,,Unsatisfactory,,43
+validation-256,Unhandled Chainlink latestRoundData() revert can lock price oracle access in PriceFeed.sol,,Unsatisfactory,,44
+validation-526,limit order might be filled with undesired apr ,,Unsatisfactory,,47
+validation-509,Chainlink flash crash price,,Unsatisfactory,,47
+validation-50, Inconsistent State and Loss of Funds Due to Missing Token Transfer Logic in `buyCreditMarket` Function,,Unsatisfactory,,48
+validation-632,Credit Amount Can be Reduced Below The Minimum Credit Value,,Unsatisfactory,,50
+validation-519,liquidation should have grace period for sequencer down time,Acceptable risk but should be noted regardless,Satisfactory,https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/RiskLibrary.sol#L104-L115,50
+validation-169,Incorrect Conversion in debtTokenAmountToCollateralTokenAmount (Reverse Market),,Unsatisfactory,,50
+validation-700,Insufficient validation before state change,,Unsatisfactory,,52
+validation-549,The `YEAR` is constant in `Math` contract and its value is 365 days which is not always correct,,Unsatisfactory,,53
+validation-276,Missing BorrowOffer Validation in LiquidateWithReplacement ,,Unsatisfactory,,53
+validation-621,Loss of Fund Value when User Deposit in the Size Contract,,Unsatisfactory,,54
+validation-254, PriceFeed.sol Lacks Check for Min and Max Price Thresholds,,Unsatisfactory,,54
+validation-132,SelfLiquidate Function Allows Theft of Collateral Due to Incorrect Transfer Recipient,,Unsatisfactory,,54
+validation-58,Double-Counting of Fragmentation Fee in getCashAmountIn Function Leads to Incorrect Calculations,"QA at most, fees",Satisfactory,"https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L249,https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L256",54
+validation-61,Unhandled Invalid Position ID in getLoanStatus Function Causes Revert,,Unsatisfactory,,55
+validation-618,Anyone can call `DepositTokenLibrary::withdrawUnderlyingCollateralToken` and `DepositTokenLibrary::withdrawUnderlyingTokenFromVariablePool` functions with arbitrary input parameters,,Unsatisfactory,,56
+validation-3,This function is marked as an initializer but is also declared as public,,Unsatisfactory,,56
+validation-55,Inconsistent Total Debt Accounting Due to Missing Update in `createDebtAndCreditPositions`,,Unsatisfactory,,59
+validation-51,Unrestricted Borrowed Amount Transfer Vulnerability in sellCreditMarket Function,,Unsatisfactory,,60
+validation-7,The smart contract's withdraw function is vulnerable to a reentrancy attack,,Unsatisfactory,,60
+validation-5, The withdraw function in the provided code demonstrates the vulnerability,,Unsatisfactory,,60
+validation-399,Inconsistent collateral ratio check allows premature self-liquidation,,Unsatisfactory,,61
+validation-6,gasPrice,,Unsatisfactory,,61
+validation-199,`executeSellCreditMarket` Uses `Unupdated cashAmountOut` for `exactAmountIn=false`,,Unsatisfactory,,62
+validation-101,Claim.sol Shortchanges Lenders Due to Flawed Rounding Logic,,Unsatisfactory,,62
+validation-13,5 Vonalblits ,,Unsatisfactory,,63
+validation-2,The Size contract does not properly enforce access control,,Unsatisfactory,,63
+validation-624,Clash of MultiCall Calls Due to Incomplete Validation,,Unsatisfactory,,64
+validation-302,Excess Collateral Not Returned to Borrower in High-Collateral Liquidation Scenarios,,Unsatisfactory,,65
+validation-178,executeSellCreditMarket Miscalculates maxCashAmountOut for Partial Lender Exits,,Unsatisfactory,,66
+validation-173,executeSelfLiquidate Sends Collateral to msg.sender (Not Borrower),,Unsatisfactory,,66
+validation-283,Incorrect Liquidation Ratio Validation Allows Setting Unsafe Liquidation Thresholds,,Unsatisfactory,,67
+validation-59,Incorrect Variable Name in Error Message of `validateBorrowATokenIncreaseLteDebtTokenDecrease` Function Leads to Confusion,,Unsatisfactory,,68
+validation-539,The price in `PriceFeed::_getPrice` is not checked if it is between the min and max price,,Unsatisfactory,,69
+validation-202,`executeLiquidate` Miscalculates Profit in Unprofitable Liquidations,,Unsatisfactory,,70
+validation-614,The input parameter `_data` in `Size::multicall` is not checked and can be malicious,,Unsatisfactory,,72
+validation-382,A borrower's debt position can be forced to be liquidated - even though the borrower was willing to repay,Acceptable risk but should be noted regardless,Satisfactory,https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/RiskLibrary.sol#L104-L115,72
+validation-446,A malicious borrower user can cause loss of funds for lender,,Unsatisfactory,,75
+validation-211,Inconsistent Cash Amount Out Calculation in Existing Positions.,,Satisfactory,,75
+validation-400,Incorrect Credit Reduction in createCreditPosition() Leads to Protocol Insolvency,"QA at most, fees",Satisfactory,"https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L249,https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L256",76
+validation-11,Potential Reentrancy Attack on the withdraw function in the Size Smart Contract,,Unsatisfactory,,76
+validation-60,Unchecked Debt Position ID in `getDebtPositionByCreditPositionId` Function Leads to Potential Revert,,Unsatisfactory,,77
+validation-402,Inconsistent Application of Fragmentation Fee in getCreditAmountOut() Function,"QA at most, fees",Satisfactory,"https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L249,https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L256",78
+validation-54,Unchecked Repayment Amount Leads to Underflow Vulnerability in `repayDebt`,,Unsatisfactory,,79
+validation-398,Lender can extract more collateral than owed in self-liquidation,,Unsatisfactory,,81
+validation-275,Binary Search Function Returns Incorrect Indices,Wrong order of arguments,Satisfactory,https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/Math.sol#L67,85
+validation-273,Divergent Handling of Borrowing vs. Loan Exits,,Unsatisfactory,,86
+validation-253,Chainlink's `latestRoundData` might return stale or incorrect results in `PriceFeed.sol`,interesting chainlink,Satisfactory,https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/oracle/PriceFeed.sol#L73,86
+validation-57,Incorrect Credit Amount Calculation in `getCreditAmountIn` Function Due to Improper Fragmentation Fee Handling,"QA at most, fees",Satisfactory,"https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L249,https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L256",87
+validation-553,A lender can Bypassing the validateUserIsNotBelowOpeningLimitBorrowCR  Check in BuyCreditMarket there breaking a main invariant,,Unsatisfactory,,88
+validation-204,The miscalculation of maxCashAmountOut in SellCreditMarket.sol negatively impacts the Size protocol by hindering the accurate valuation and trading of existing credit positions.,"QA at most, fees",Satisfactory,"https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L249,https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L256",88
+validation-4,lead to a front-running attack due to the state variable,,Unsatisfactory,,90
+validation-300,Impact of Loan Repayment Front-Running on Protocol Fees and Incentives (Overdue charges are not deduct when an overdue loan is repaid),,Unsatisfactory,,91
+validation-130,Users may be incorrectly liquidated or denied access to certain features based on the incorrect collateral ratio.,,Unsatisfactory,,92
+validation-62,Inaccurate Collateral Assignment in `getDebtPositionAssignedCollateral` Function for Borrowers with Multiple `DebtPositions`,,Unsatisfactory,,92
+validation-168,USDC Collateral and WETH Debt Mismatch in collateralRatio Function,,Unsatisfactory,,93
+validation-52,Unvalidated Tenor Parameter Vulnerability in `getBorrowOfferAPR` and `getLoanOfferAPR`,,Unsatisfactory,,93
+validation-200,`executeBuyCreditMarket` Uses Lender Address Instead of Borrower for Existing Loans,,Unsatisfactory,,96
+validation-176,getDebtPositionAssignedCollateral Misuses Total Borrower Debt/Collateral (Liquidation),,Unsatisfactory,,97
+validation-131,Incorrect Collateral Ratio Calculation Due to Decimal Mismatch in Reverse Markets,,Unsatisfactory,,99
+validation-53, Inaccurate Collateral Token Amount Calculation Due to Unaccounted Decimal Difference in `debtTokenAmountToCollateralTokenAmount`,,Unsatisfactory,,99
+validation-397,Potential Violation of FEES_01 Invariant in getCashAmountOut() Function,no frag fee,Satisfactory,"https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/actions/Compensate.sol#L136,https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/actions/Compensate.sol#L146",101
+validation-205,getDebtPositionAssignedCollateral Reverts on Zero Debt with Non-Zero Collateral.,,Unsatisfactory,,101
+validation-193,Incorrect fee calculation in `getCashAmountOut()` results in overcharging users,,Satisfactory,"https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L197,https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L207",102
+validation-401,Violation of SOLVENCY_02 Invariant in createDebtAndCreditPositions() Function,,Unsatisfactory,,104
+validation-135,Incomplete Debt Position Update in `LiquidateWithReplacement` Due Date Not Reset,,Unsatisfactory,,104
+validation-134,`DebtInCollateralToken` Check Missing,,Unsatisfactory,,104
+validation-304,Fragmentation Fee Application Leads to Unfair Charges and Potential Fee Avoidance,no frag fee,Satisfactory,"https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/actions/Compensate.sol#L136,https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/actions/Compensate.sol#L146",105
+validation-597,Unresolved For-Sale Status After Credit Adjustment in createCreditPosition Function,immediate for sale exploit,Satisfactory,https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L81,107
+validation-277,Inaccurate Minimum Profit Check in LiquidateWithReplacement,,Unsatisfactory,,107
+validation-619,Liquidation with Replacement Transfers All the liquidatorProfitBorrowToken to the Protocol's Fee Collector without Forwarding the Liquidator(KEEPER ROLE) and Liquidated User a share of the BorrowAtokenprofit,,Unsatisfactory,,108
+validation-89,Misconfigured Modifier Allows Unauthorised Access to updateConfig Function within the Size contract,,Unsatisfactory,,108
+validation-175,Inconsistent Fee Deduction in SellCreditMarket (exactAmountIn=false),"QA at most, fees",Satisfactory,"https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L249,https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L256",110
+validation-172,executeLiquidateWithReplacement Miscalculates Rate for New Borrower (Liquidation),,Unsatisfactory,,111
+validation-170,Debt Not Reduced in Debt Position During Self-Liquidation,,Unsatisfactory,,114
+validation-26,Incorrect Calculation in amountToWad Function within the Math library,,Unsatisfactory,,114
+validation-207,Unsuccessful Aave Withdrawal Leads to BorrowAToken Burn,OOS?,Unsatisfactory,,122
+validation-605,When a user Wants to Partially repay he/she is Fragmenting a Credit Position but the current implementation allows a user to Bypassing Fragmentation Fee payment even though the user still doesn't repay any of the fragmented loans ,no frag fee,Satisfactory,"https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/actions/Compensate.sol#L136,https://github.com/code-423n4/2024-06-size/blob/main/src/libraries/actions/Compensate.sol#L146",125
+validation-179,BuyCreditMarket: Missing Fee Deduction from Buyer Payment (exactAmountIn=true),"QA at most, fees",Satisfactory,"https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L249,https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L256",129
+validation-209,`getCreditAmountOut` Doesn't Account for Swap Fee in Credit Fractionalization.,"QA at most, fees",Satisfactory,"https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L249,https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L256",133
+validation-106,Unrestricted Proxy Initialisation in the Size contract,,Unsatisfactory,,134
+validation-186,Insufficient fee check in `getCreditAmountOut` can lead to Underflow and incorrect credit calculation,,Unsatisfactory,,140
+validation-81,Unauthorised access to buy and sell credit using the BuyCreditLimit library,,Unsatisfactory,,140
+validation-274,Incorrect BorrowAToken Mint in Deposit Underlying,,Unsatisfactory,,141
+validation-133,Unfair Collateral Distribution in Self-Liquidation: Repay Fee Omitted from Assigned Collateral Calculation,,Unsatisfactory,,141
+validation-210,Lender Mismatch When Creating New Credit Positions,,Unsatisfactory,,142
+validation-312,Inconsistent Debt Position State and Outdated Future Value Usage in Liquidation Replacement Process Could Lead To Bad Accounting,,Unsatisfactory,,146
+validation-171,validateSelfLiquidate Uses Borrower's Overall Collateral Ratio ,,Unsatisfactory,,149
+validation-136,Incorrect Calculation Due to Order of Operations,,Unsatisfactory,,149
+validation-56,Missing Update in `createCreditPosition` Function Leads to Inconsistent Credit Position Tracking.,,Unsatisfactory,,149
+validation-279,Unbounded loop in `multicall` tolerates DoS attacks by exploiting excessive gas consumption,,Unsatisfactory,,151
+validation-573,Potential DOS for buy credit market and sell credit market ,,Unsatisfactory,,155
+validation-82,Extremely High Gas Consumption on the Multicall library,,Unsatisfactory,,160
+validation-583,A Lenders address can be matched against his borrow offer in the Liquidated with Replacement Function thereby leading to loss of funds by the lender.,,Satisfactory,https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/actions/LiquidateWithReplacement.sol#L47-L112,176
+validation-12, I found several potential vulnerabilities and weak points that a hacker could potentially exploit,,Unsatisfactory,,178
+validation-298,Issues Arising from Liquidation Reward Misvaluation/Miscalculation,units,Satisfactory,https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/actions/Liquidate.sol#L96-L99,182
+validation-177,getCreditAmountOut Miscalculates Credit Due to Doubled Swap Fee (Fragmentation),"QA at most, fees",Satisfactory,"https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L249,https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L256",199
+validation-14,10 Vonalblity of smart contact ,,Unsatisfactory,,199
+validation-387,Incorrect credit decrement logic in compensation mechanism doesn't limit multiple debt reductions with single credit position,,Unsatisfactory,,242
+validation-299,Insufficient validation of APR in `executeSellCreditMarket` permits manipulation resulting in miscalculated cash amounts and fees,,Unsatisfactory,,285
+validation-259,Flawed liquidation reward calculation in `executeLiquidation` allows over-compensation of liquidators due to improper use of collateral value,,Unsatisfactory,,295
+validation-530,Manipulation of collateral ratios in `SelfLiquidate` via precision and timing exploits leading to unjust collateral extraction,,Unsatisfactory,,301
+validation-260,Insufficient validation of credit position transferability in `validateSellCreditMarket` leads to at-risk credit transfers and possible systemic risk,,Unsatisfactory,,339
+validation-641,Inadequate liquidation logic in `multicall` facilitates strategic abuse throughout bypass of liquidation checks in batched operations,,Unsatisfactory,,384
+validation-703,Improper liquidation profit calculation on `validateMinimumCollateralProfit` due to omission of protocol fee,,Abstain,,385
+validation-379,Unauthorized access via `delegatecall` in `setUserConfiguration` allows malicious user configuration alterations and manipulation of credit position IDs on behalf of other users,,Unsatisfactory,,410
+validation-381,Arbitrary debt forgiveness and unauthorized credit reduction exploit in `compensate` logic due to insufficient validation checks,,Unsatisfactory,,478
+validation-372,Fragmentation fee and fee calculation in Sell Credit Market is Wrong leading to the payment of less or overpayment when using Credit and Cash.,"QA at most, fees",Satisfactory,"https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L249,https://github.com/code-423n4/2024-06-size/blob/8850e25fb088898e9cf86f9be1c401ad155bea86/src/libraries/AccountingLibrary.sol#L256",568
