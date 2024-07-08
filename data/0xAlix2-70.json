@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "A borrower can force set other lender's credit position for sale, by calling compensate and passing `RESERVED ID`",
   "issueId": 70,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/70"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/70",
+  "validatedIssueId": 405,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/405"
 }
