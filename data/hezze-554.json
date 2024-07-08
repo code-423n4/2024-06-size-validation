@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Decimal error in calculation of the liquidator's reward",
   "issueId": 554,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/554"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/554",
+  "validatedIssueId": 280,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/280"
 }
