@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Incorrect fee calculation in sellCreditMarket",
   "issueId": 297,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/297"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/297",
+  "validatedIssueId": 359,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/359"
 }
