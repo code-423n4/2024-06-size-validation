@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Liquidators will never receive any rewards",
   "issueId": 42,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/42"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/42",
+  "validatedIssueId": 412,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/412"
 }
