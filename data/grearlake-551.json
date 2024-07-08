@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Wrong liquidity checking lead to token being stuck",
   "issueId": 551,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/551"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/551",
+  "validatedIssueId": 281,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/281"
 }
