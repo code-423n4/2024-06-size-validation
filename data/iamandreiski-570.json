@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "There is a discrepancy in which party pays the fragmentation fee depending on whether buyMarketCredit or sellMarketCredit is used",
   "issueId": 570,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/570"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/570",
+  "validatedIssueId": 267,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/267"
 }
