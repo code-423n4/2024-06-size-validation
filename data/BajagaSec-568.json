@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Incorrect calculation for liquidatorReward in executeLiquidate function",
   "issueId": 568,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/568"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/568",
+  "validatedIssueId": 268,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/268"
 }
