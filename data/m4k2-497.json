@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Incorrect Overdue Liquidation Protocol Fees Calculation",
   "issueId": 497,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/497"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/497",
+  "validatedIssueId": 188,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/188"
 }
