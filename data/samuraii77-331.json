@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "User funds could get stuck or unexpected reverts could occur",
   "issueId": 331,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/331"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/331",
+  "validatedIssueId": 345,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/345"
 }
