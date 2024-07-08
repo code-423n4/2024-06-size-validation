@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Compensate with `RESERVED_ID` can be used for protocol DOS via slicing credit position where attacker is the borrower to the minimal allowed pieces",
   "issueId": 699,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/699"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/699",
+  "validatedIssueId": 174,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/174"
 }
