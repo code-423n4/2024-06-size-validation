@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "During profitable liquidations, under certain conditions the fee for the protocol can be 0",
   "issueId": 336,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/336"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/336",
+  "validatedIssueId": 205,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/205"
 }
