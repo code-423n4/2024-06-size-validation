@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Incorrect Credit Amount Calculation in `getCreditAmountIn` Function Due to Improper Fragmentation Fee Handling",
   "issueId": 57,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/57"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/57",
+  "validatedIssueId": 409,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/409"
 }
