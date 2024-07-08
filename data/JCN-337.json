@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Size overcharges lender and overpays borrower during `sellCreditMarket` calls",
   "issueId": 337,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/337"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/337",
+  "validatedIssueId": 204,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/204"
 }
