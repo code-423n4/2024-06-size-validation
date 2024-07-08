@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "There is a missing check when compensating of a credit position.",
   "issueId": 228,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/228"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/228",
+  "validatedIssueId": 377,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/377"
 }
