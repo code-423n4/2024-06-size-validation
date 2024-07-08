@@ -4,5 +4,7 @@
   "risk": "Q",
   "title": "QA Report",
   "issueId": 650,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/650"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/650",
+  "validatedIssueId": 160,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/160"
 }
