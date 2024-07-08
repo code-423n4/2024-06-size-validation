@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "`CapsLibrary.sol#validateBorrowATokenIncreaseLteDebtTokenDecrease` uses wrong source of `borrowAToken` total supply rendering validation ineffective which allows anyone to bypass cap limit by deposit via `multicall`",
   "issueId": 268,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/268"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/268",
+  "validatedIssueId": 367,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/367"
 }
