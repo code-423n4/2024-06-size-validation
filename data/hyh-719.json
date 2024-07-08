@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Liquidate sets `collateralRemainderCap` incorrectly as only overcollateralization part needs to be compared to the remainder",
   "issueId": 719,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/719"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/719",
+  "validatedIssueId": 231,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/231"
 }
