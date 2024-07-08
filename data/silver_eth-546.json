@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "All transactops in which CapsLibrary::validateVariablePoolHasEnoughLiquidity is called revert",
   "issueId": 546,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/546"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/546",
+  "validatedIssueId": 284,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/284"
 }
