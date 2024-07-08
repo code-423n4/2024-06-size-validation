@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Legitimate call with small cash out can be reverted.",
   "issueId": 258,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/258"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/258",
+  "validatedIssueId": 370,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/370"
 }
