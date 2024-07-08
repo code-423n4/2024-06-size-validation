@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Invalid comparison when computing the liquidator's reward in `executeLiquidate`",
   "issueId": 65,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/65"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/65",
+  "validatedIssueId": 407,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/407"
 }
