@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Wrong check when `buyCreditMarket` is been called with `param.exactAmountIn` equal to true.",
   "issueId": 138,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/138"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/138",
+  "validatedIssueId": 397,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/397"
 }
