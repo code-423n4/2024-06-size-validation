@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Paused Repayments Leading to Immediate Liquidation affects Borrower Collateral Security",
   "issueId": 294,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/294"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/294",
+  "validatedIssueId": 360,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/360"
 }
