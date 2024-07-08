@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Incorrect ```liquidatorReward``` calculation due to using ```debtPosition.futureValue``` instead of ```debtInCollateralToken```.",
   "issueId": 594,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/594"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/594",
+  "validatedIssueId": 256,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/256"
 }
