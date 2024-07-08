@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Protocol fails to take fragmentation fee during credit fractionalization for every compensate call with params.creditPositionToCompensateId == RESERVED_ID.",
   "issueId": 377,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/377"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/377",
+  "validatedIssueId": 330,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/330"
 }
