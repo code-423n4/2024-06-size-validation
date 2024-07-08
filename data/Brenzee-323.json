@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Incorrect liquidator reward calculation results in significant loss of reward",
   "issueId": 323,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/323"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/323",
+  "validatedIssueId": 207,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/207"
 }
