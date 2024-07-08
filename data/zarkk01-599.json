@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Credit positions with cash less than ```minimumCreditBorrowAToken``` and credit more than ```minimumCreditBorrowAToken``` will not be created while they should",
   "issueId": 599,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/599"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/599",
+  "validatedIssueId": 254,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/254"
 }
