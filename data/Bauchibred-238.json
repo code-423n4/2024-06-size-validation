@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Inability to perform partial liquidations allows huge positions to accrue bad debt in the system",
   "issueId": 238,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/238"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/238",
+  "validatedIssueId": 374,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/374"
 }
