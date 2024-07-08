@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "`validateVariablePoolHasEnoughLiquidity`'s checking condition can be bypassed.",
   "issueId": 561,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/561"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/561",
+  "validatedIssueId": 274,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/274"
 }
