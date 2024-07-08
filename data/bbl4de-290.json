@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Insufficient validation of `maxDueDate` presents a risk for lenders allowing unintended 0% APR loans ",
   "issueId": 290,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/290"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/290",
+  "validatedIssueId": 211,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/211"
 }
