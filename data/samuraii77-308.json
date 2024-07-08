@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Users can end up with unwanted debt",
   "issueId": 308,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/308"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/308",
+  "validatedIssueId": 208,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/208"
 }
