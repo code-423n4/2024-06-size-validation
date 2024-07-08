@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "incorrect check for cash against credit makes check redundant",
   "issueId": 416,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/416"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/416",
+  "validatedIssueId": 317,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/317"
 }
