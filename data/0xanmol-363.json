@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Incorrect Minimum credit Check in `validateBuyCreditMarket`",
   "issueId": 363,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/363"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/363",
+  "validatedIssueId": 334,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/334"
 }
