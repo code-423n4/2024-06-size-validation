@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Inside Multicall, wrong parameters passed into state.validateBorrowATokenIncreaseLteDebtTokenDecrease allows for unintended behaviour where total supply of borrowAtokens exceed borrowATokenCap despite not being for the purpose of decreasing debt",
   "issueId": 512,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/512"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/512",
+  "validatedIssueId": 294,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/294"
 }
