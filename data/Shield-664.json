@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "When calculating `creditAmountIn` and `creditAmountOut` the `interest rate` is applied on top of the `fragmentationFee`",
   "issueId": 664,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/664"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/664",
+  "validatedIssueId": 242,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/242"
 }
