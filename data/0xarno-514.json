@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Incorrect Handling of Decimal Places in Liquidation Reward Calculation",
   "issueId": 514,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/514"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/514",
+  "validatedIssueId": 293,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/293"
 }
