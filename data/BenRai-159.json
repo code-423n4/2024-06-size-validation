@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Because of a decimal issue, the liquidator gets next to nothing as a liquidation rewards when liquidating a borrow position",
   "issueId": 159,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/159"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/159",
+  "validatedIssueId": 393,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/393"
 }
