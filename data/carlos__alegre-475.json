@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Users can pay less fees for the same amount of cash, protocol losses expected income",
   "issueId": 475,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/475"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/475",
+  "validatedIssueId": 303,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/303"
 }
