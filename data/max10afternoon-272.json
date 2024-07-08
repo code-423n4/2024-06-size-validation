@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Incorrect computation of liquidator's reward",
   "issueId": 272,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/272"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/272",
+  "validatedIssueId": 366,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/366"
 }
