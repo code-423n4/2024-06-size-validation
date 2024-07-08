@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Borrower are not able to repay debt when protocol is paused.",
   "issueId": 564,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/564"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/564",
+  "validatedIssueId": 272,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/272"
 }
