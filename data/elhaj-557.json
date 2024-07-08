@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "No Incentive for Liquidation Due to Incorrect Calculation of Liquidator Rewards",
   "issueId": 557,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/557"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/557",
+  "validatedIssueId": 277,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/277"
 }
