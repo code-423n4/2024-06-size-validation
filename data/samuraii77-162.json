@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Users might not be able to withdraw USDC from the protocol",
   "issueId": 162,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/162"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/162",
+  "validatedIssueId": 391,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/391"
 }
