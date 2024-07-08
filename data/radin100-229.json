@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Liquidator would never see intended profit from liquidations, due to bad liquidatorReward calculation",
   "issueId": 229,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/229"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/229",
+  "validatedIssueId": 376,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/376"
 }
