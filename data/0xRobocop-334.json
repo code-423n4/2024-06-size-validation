@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Validation of borrow increase against debt decrease will not work as intended",
   "issueId": 334,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/334"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/334",
+  "validatedIssueId": 343,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/343"
 }
