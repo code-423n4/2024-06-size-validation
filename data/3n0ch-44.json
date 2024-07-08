@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Wrong calculation of `fees` by `getCreditAmountIn` in `SellCreditMarket`",
   "issueId": 44,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/44"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/44",
+  "validatedIssueId": 411,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/411"
 }
