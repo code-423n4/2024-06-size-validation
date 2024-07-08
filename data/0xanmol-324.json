@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Incorrect Reward Calculation in `executeLiquidate`",
   "issueId": 324,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/324"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/324",
+  "validatedIssueId": 348,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/348"
 }
