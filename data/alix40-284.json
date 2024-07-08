@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "protocol blocks partial repayment, even though they improve borrowers health in certain conditions",
   "issueId": 284,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/284"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/284",
+  "validatedIssueId": 363,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/363"
 }
