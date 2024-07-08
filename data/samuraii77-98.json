@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Malicious lenders can force borrowers into fragmenting their credit positions",
   "issueId": 98,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/98"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/98",
+  "validatedIssueId": 401,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/401"
 }
