@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Users are able to split their debt position at no cost, allowing them to delay or even prevent liquidation",
   "issueId": 622,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/622"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/622",
+  "validatedIssueId": 246,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/246"
 }
