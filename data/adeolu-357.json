@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "credit positions marked not for sale can be sold. ",
   "issueId": 357,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/357"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/357",
+  "validatedIssueId": 335,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/335"
 }
