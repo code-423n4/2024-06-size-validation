@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Fragmentation fee and fee calculation in Sell Credit Market is Wrong leading to the payment of less or overpayment when using Credit and Cash.",
   "issueId": 372,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/372"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/372",
+  "validatedIssueId": 331,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/331"
 }
