@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Charging more Credit than what it should be really charged to CreditSellers when Selling Credit with a market order for a specific amount of cash.",
   "issueId": 339,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/339"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/339",
+  "validatedIssueId": 203,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/203"
 }
