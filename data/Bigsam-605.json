@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "When a user Partially repays he/she is Fragmenting a Credit Position but the current implementation allows a user to Bypassing Fragmentation Fee payment",
   "issueId": 605,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/605"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/605",
+  "validatedIssueId": 251,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/251"
 }
