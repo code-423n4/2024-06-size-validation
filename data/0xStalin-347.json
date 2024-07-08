@@ -4,5 +4,7 @@
   "risk": "3",
   "title": "Liquidator's reward are wrongly computed because they are not converted to its value worth in collateral.",
   "issueId": 347,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/347"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/347",
+  "validatedIssueId": 339,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/339"
 }
