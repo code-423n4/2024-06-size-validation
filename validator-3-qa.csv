@@ -1,0 +1,76 @@
+issue,title,validator comment,grade,size,Best
+findings-112,QA Report,"Bot: 1, 3, 7, 8; 14 generic Lows",Satisfactory,3109,✰✰✰
+findings-122,QA Report,5 Lows,Satisfactory,145,✰✰✰
+findings-127,QA Report,FP: 5; 7 Lows,Satisfactory,214,✰✰✰
+findings-132,QA Report,Gas: 3; FP: 5; 3 Lows,Unsatisfactory,342,✰✰✰
+findings-135,QA Report,2 Lows,Unsatisfactory,121,✰✰✰
+findings-154,QA Report,Upgrade: 2; 2 Lows,Unsatisfactory,1,✰✰✰
+findings-157,QA Report,Gas: 3; 2 Lows,Unsatisfactory,79,✰✰✰
+findings-48,QA Report,FP: 3; 3 Lows,Unsatisfactory,59,✰✰✰
+findings-69,QA Report,"FP: 5, 9; 7 Lows",Satisfactory,391,✰✰✰
+findings-89,QA Report,2 Lows,Unsatisfactory,54,✰✰✰
+findings-9,QA Report,1 Low,Unsatisfactory,22,✰✰✰
+findings-93,QA Report,2 Lows,Unsatisfactory,32,✰✰✰
+validation-112,QA Report,1 Low,Unsatisfactory,22,✰✰✰
+validation-115,Gas Optimizations,No gas pool,Unsatisfactory,28,✰✰✰
+validation-117,QA Report,"Bot: 2; Gas: 3, 7; NC: 4, 5 , 6, 8, 9, 10, 11, 12; 1 Low",Unsatisfactory,726,✰✰✰
+validation-118,Gas Optimizations,No gas pool,Unsatisfactory,55,✰✰✰
+validation-149,QA Report,1 Low,Unsatisfactory,147,✰✰✰
+validation-156,QA Report,Identical to validation-158,Unsatisfactory,1448,✰✰✰
+validation-157,QA Report,Identical to validation-158,Unsatisfactory,1448,✰✰✰
+validation-158,QA Report,"FP: 23, 10; Gas: 24; Bot: 20, 17, 15, 7, 5, 2, 11; 14 Lows (generic prone)",Unsatisfactory,1448,✰✰✰
+validation-185,QA Report,2 Gases; 2 NC's,Unsatisfactory,211,✰✰✰
+validation-206,QA Report,1 Low,Unsatisfactory,18,✰✰✰
+validation-21,QA Report,1 Low,Unsatisfactory,26,✰✰✰
+validation-217,QA Report,FP: 26; 26 Lows (generic prone),Satisfactory,418,★✰✰
+validation-224,QA Report,2 Lows/NC's,Unsatisfactory,2,✰✰✰
+validation-225,Gas Optimizations,No gas pool,Unsatisfactory,36,✰✰✰
+validation-244,QA Report,"FP: 2, 3, 6; NC: 8; 8 Lows",Satisfactory,583,★★✰
+validation-28,Gas Optimizations,No gas pool,Unsatisfactory,23,✰✰✰
+validation-285,Gas Optimizations,No gas pool,Unsatisfactory,158,✰✰✰
+validation-286,QA Report,"Bot: 9; NC: 5, 8; 7 Lows",Satisfactory,196,✰✰✰
+validation-29,Gas Optimizations,No gas pool,Unsatisfactory,13,✰✰✰
+validation-301,Gas Optimizations,No gas pool,Unsatisfactory,11,✰✰✰
+validation-32,QA Report,"FP: 1, 2; Bot: 4, 5, 6, 7, 13, 17, 20, 22; Gas: 24, 25, 26, 27, 28, 30, 31; NC: 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, ... (Mostly generic Lows)",Satisfactory,9391,✰✰✰
+validation-33,Gas Optimizations,No gas pool,Unsatisfactory,3958,✰✰✰
+validation-338,QA Report,6 Lows,Satisfactory,95,✰✰✰
+validation-36,QA Report,1 NC,Unsatisfactory,3,✰✰✰
+validation-376,QA Report,"FP: 1, 3; 1 Low",Unsatisfactory,86,✰✰✰
+validation-386,QA Report,"FP: 13, 14, 16, 18; Bot: 22; NC: 29; 23 Lows (Generic Mix)",Satisfactory,1592,✰✰✰
+validation-410,QA Report,"FP: 1, 4, 5, 7, 11, 18, 23, 24, 26, 30; Gas: 10; Bot: 32; 23 mostly generic findings",Satisfactory,961,✰✰✰
+validation-415,Gas Optimizations,No gas pool,Unsatisfactory,104,✰✰✰
+validation-418,QA Report,2 Lows,Unsatisfactory,136,✰✰✰
+validation-420,QA Report,1 Low,Unsatisfactory,148,✰✰✰
+validation-447,QA Report,1 Low,Unsatisfactory,80,✰✰✰
+validation-478,QA Report,2 Lows,Unsatisfactory,1,✰✰✰
+validation-479,QA Report,2 Lows,Unsatisfactory,149,✰✰✰
+validation-48,QA Report,2 Lows,Unsatisfactory,110,✰✰✰
+validation-506,QA Report,"FP: 6, 8, 9, 10; 9 Lows",Satisfactory,590,★★✰
+validation-507,QA Report,"FP: 1, 5; 3 Lows",Unsatisfactory,77,✰✰✰
+validation-518,Gas Optimizations,No gas pool,Unsatisfactory,69,✰✰✰
+validation-524,QA Report,"FP: 1, 0 Lows",Unsatisfactory,18,✰✰✰
+validation-537,QA Report,1 Low,Unsatisfactory,15,✰✰✰
+validation-560,QA Report,1 Low,Unsatisfactory,49,✰✰✰
+validation-577,QA Report,FP: 5; Gas: 7; 6 Lows (3 of which can be grouped into 1 Low),Satisfactory,191,✰✰✰
+validation-589,QA Report,1 Low/NC,Unsatisfactory,7,✰✰✰
+validation-591,QA Report,More appropriate as an Analysis report,Unsatisfactory,24,✰✰✰
+validation-63,QA Report,1 Low,Unsatisfactory,22,✰✰✰
+validation-637,QA Report,1 Low,Unsatisfactory,44,✰✰✰
+validation-638,QA Report,6 Lows,Satisfactory,170,✰✰✰
+validation-640,QA Report,1 Low,Unsatisfactory,27,✰✰✰
+validation-650,QA Report,5 Lows,Satisfactory,102,✰✰✰
+validation-660,QA Report,"FP: 5; Bot: 7, 8, 9, 12; 19 generic bound Lows",Satisfactory,1580,✰✰✰
+validation-661,QA Report,3 Lows,Unsatisfactory,32,✰✰✰
+validation-67,QA Report,1 Low,Unsatisfactory,31,✰✰✰
+validation-681,Gas Optimizations,No gas pool,Unsatisfactory,22,✰✰✰
+validation-687,QA Report,"Gas: 5; NC: 7, 6, 3; 3 Lows",Unsatisfactory,84,✰✰✰
+validation-69,Gas Optimizations,No gas pool,Unsatisfactory,12,✰✰✰
+validation-698,QA Report,FP: 2; 4 Lows,Unsatisfactory,57,✰✰✰
+validation-707,QA Report,1 Low,Unsatisfactory,55,✰✰✰
+validation-71,QA Report,Gas: 3; 2 Lows,Unsatisfactory,68,✰✰✰
+validation-723,QA Report,FP: 4; 4 Lows,Unsatisfactory,54,✰✰✰
+validation-724,QA Report,1 Low,Unsatisfactory,17,✰✰✰
+validation-731,QA Report,1 Low,Unsatisfactory,151,✰✰✰
+validation-78,Gas Optimizations,No gas pool,Unsatisfactory,126,✰✰✰
+validation-83,QA Report,2 Lows/NC's,Unsatisfactory,1,✰✰✰
+validation-99,QA Report,1 Low,Unsatisfactory,16,✰✰✰
