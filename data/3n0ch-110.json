@@ -4,5 +4,7 @@
   "risk": "2",
   "title": "Users can not withdraw USDC when they are below the opening limit borrow CR",
   "issueId": 110,
-  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/110"
+  "issueUrl": "https://github.com/code-423n4/2024-06-size-validation/issues/110",
+  "validatedIssueId": 432,
+  "validatedIssueUrl": "https://github.com/code-423n4/2024-06-size-findings/issues/432"
 }
